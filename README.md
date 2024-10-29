@@ -1,47 +1,47 @@
-## 👋 Hola, soy Santiago Flores
+## 👋 Hi, I'm Santiago Flores
 
-### Investigador en Bioingeniería y Data Science | Ciencia de Datos Aplicada a Señales Biológicas
+### Researcher in Bioengineering and Data Science | Data Science Applied to Biological Signals
 
-Soy un científico de datos e investigador en bioingeniería, especializado en el análisis de bioseñales. Actualmente, soy estudiante de Física Computacional en la Universidad Nacional de San Agustín y trabajo en proyectos que combinan ciencia de datos y bioingeniería.
-
----
-
-### 🔭 Actualmente trabajando en:
-- **Infraestructura de Cómputo Científico**: Implementando servidores y workstations para simulaciones biológicas de alto costo computacional.
-- **Modelado Computacional**: Investigando el acoplamiento cardiorrespiratorio mediante simulaciones de señales fisiológicas.
-- **Bases de Datos Científicas**: Desarrollando soluciones con MongoDB y PostgreSQL para grandes volúmenes de datos.
+I am a data scientist and researcher in bioengineering, specialized in biosignal analysis. Currently, I am a Computational Physics student at the National University of San Agustín, and I work on projects that combine data science and bioengineering.
 
 ---
 
-### 🌱 Aprendiendo y desarrollando:
-- **Data Science**: Continuo perfeccionamiento de técnicas de machine learning y deep learning aplicadas a bioseñales.
-- **Big Data**: Implementación de bases de datos científicas para análisis de grandes volúmenes de datos biológicos.
-- **Simulaciones Biológicas**: Aplicando métodos computacionales para estudiar sistemas biológicos complejos.
+### 🔭 Currently working on:
+- **Scientific Computing Infrastructure**: Implementing servers and workstations for high-computational-cost biological simulations.
+- **Computational Modeling**: Investigating cardiopulmonary coupling through physiological signal simulations.
+- **Scientific Databases**: Developing solutions with MongoDB and PostgreSQL for handling large data volumes.
 
 ---
 
-### 💬 Pregúntame sobre:
-- Bioingeniería
-- Machine Learning y Deep Learning aplicados a bioseñales
-- Modelado y simulaciones computacionales en biología
-- Ciencia de datos aplicada a la salud
-- Análisis de series temporales y entropía
+### 🌱 Learning and developing:
+- **Data Science**: Ongoing improvement of machine learning and deep learning techniques applied to biosignals.
+- **Big Data**: Implementing scientific databases for analyzing large volumes of biological data.
+- **Biological Simulations**: Applying computational methods to study complex biological systems.
 
 ---
 
-### 🤝 Estoy buscando colaborar en:
-- Proyectos de investigación interdisciplinarios en bioingeniería, ciencia de datos y modelado computacional.
-- Análisis y procesamiento de grandes volúmenes de datos biológicos.
-- Desarrollos open-source enfocados en bioseñales.
+### 💬 Ask me about:
+- Bioengineering
+- Machine Learning and Deep Learning applied to biosignals
+- Computational modeling and simulations in biology
+- Data science applied to health
+- Time series analysis and entropy
 
 ---
 
-### 📫 Cómo contactarme:
+### 🤝 Looking to collaborate on:
+- Interdisciplinary research projects in bioengineering, data science, and computational modeling.
+- Analysis and processing of large biological datasets.
+- Open-source developments focused on biosignals.
+
+---
+
+### 📫 How to contact me:
 - **Email**: sfloreschav@unsa.edu.pe
 - **LinkedIn**: [Santiago Flores](https://www.linkedin.com/in/issantiagofl)
 - **X (Twitter)**: [@SantiagoFlores](https://www.twitter.com/isSantiagoFL)
 
 ---
 
-### ⚡ Dato curioso:
-- Cuando no estoy programando o investigando, me encanta aprender sobre nuevas tecnologías y cómo se aplican para resolver problemas complejos en bioingeniería y salud.
+### ⚡ Fun fact:
+- When I'm not programming or researching, I love learning about new technologies and how they can be applied to solve complex problems in bioengineering and health.
