@@ -1,0 +1,681 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Instalación de Python en Linux y sus herramientas</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="96b58cae-1b36-4aa5-9ff2-8311af3cc0db" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">⬇️</span></div><h1 class="page-title">Instalación de Python en Linux y sus herramientas</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><div id="7fc680ea-1745-44d7-94ca-d73a0b76e294" class="column-list"><div id="305429d3-ac91-4fdd-b6cf-9ee1546f39c1" style="width:75%" class="column"><p id="b1fd4f8e-d04c-4c1c-b906-2e10458b89c4" class="">
+</p></div><div id="5b9462fc-8ee9-45fc-94c9-f44376a4111a" style="width:24.999999999999993%" class="column"><p id="21e2c480-d564-452f-af02-fb27d592e513" class="block-color-orange_background"><em>Autor: Santiago I. Flores</em></p></div></div><div id="92164826-ee11-47e3-bfb4-1f6f599ae8a1" class="column-list"><div id="a6affd1d-5f7b-4e1e-acf4-fb5596cfec56" style="width:25%" class="column"><p id="b8d6149b-d23b-4e14-a75e-6613ba745299" class=""><span style="border-bottom:0.05em solid"><mark class="highlight-gray"><strong>Índice:</strong></mark></span></p><nav id="1cd7d6b8-d3cf-4b84-b6cf-7675c8df117c" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1595bb0c-34a0-46e3-aeea-0ff02711f179"><strong>1. Preparación del Sistema</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#fe8743a8-041d-44b6-bd6f-70d228072639"><strong>1.1. Revisar Actualizaciones:</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d5ea623e-e74d-4840-a6a1-81a5d9deba73"><strong>1.2. </strong><strong>Aplicar Actualizaciones:</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f8ce277b-7de2-4a97-9820-2eb752097c7f"><strong>2. Instalación de Python</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8b7bb112-7961-4769-b032-a55cc5a0d476"><strong>2.1. Instalar Python 3:</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#87e6057f-3ea4-440c-b627-b35aabed73a7"><strong>2.2. Verificar Instalación:</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ae29ef97-3201-4720-a808-bc4dba2e97b8">3.<strong><strong> Gestor de Herramientas Python (PIP3)</strong></strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b499c541-e924-4115-9d27-8091632b7296">3.1<strong>. Instalar PIP3:</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#44d0adc3-12cc-443b-a23f-cecb38e98c07">3.2<strong>. Verificación de PIP3:</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a601183f-a008-4999-be07-adf852acf5bb">4.<strong> Herramientas Esenciales de Desarrollo</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d5191e60-3833-4285-af4d-44440eb32137">5.<strong> Entornos Virtuales</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1a144996-2e3f-4f72-9adf-2a51bcec06ee">6. <strong>Herramienta: FastAPI</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e992d0a5-4c2e-4bcd-9953-277c3c0cf85c">6.1<strong>. Instalación de FastAPI:</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4ca59311-49d7-48c2-bf18-46681de38e9f">6.2<strong>. Instalación de Uvicorn:</strong></a></div></nav><p id="ea5e6e95-e8c7-4c5c-b260-d998657a0a55" class="">
+</p><p id="1313470f-a1e6-4b4c-9e5f-63a4bfedd1f5" class="block-color-red_background">⚠️ Falta agregar la instalación de: 🚨</p><ul id="7aa90e68-0a9c-40cb-919e-289977e62511" class="bulleted-list"><li style="list-style-type:disc">Conda, miniconda y anaconda</li></ul><ul id="cd82bb0c-8de3-40ce-ac9a-720ada6b27d7" class="bulleted-list"><li style="list-style-type:disc">Docker</li></ul><p id="469d8df0-7256-4440-b915-d40ec65c8e6b" class="">
+</p></div><div id="1984007e-2f01-45af-a89a-139aefc72948" style="width:74.99999999999997%" class="column"><p id="7fbf993f-a482-48d1-b6f9-d470b915bc09" class=""><span style="border-bottom:0.05em solid"><strong><strong><strong>Contenidos:</strong></strong></strong></span></p><h2 id="1595bb0c-34a0-46e3-aeea-0ff02711f179" class=""><strong>1. Preparación del Sistema</strong></h2><p id="625e2f26-cadd-42d6-bbc3-211f7131202a" class="">Antes de instalar Python, asegurémonos de que tu sistema esté actualizado.</p><h3 id="fe8743a8-041d-44b6-bd6f-70d228072639" class=""><strong>1.1. Revisar Actualizaciones:</strong></h3><p id="98f1be49-fcf2-4700-ad25-94f00e47e2ca" class="">Verifica las actualizaciones disponibles.</p><pre id="e36af2f0-ef12-4739-aabc-b8eb7fbb9ee1" class="code code-wrap"><code>sudo apt update</code></pre><h3 id="d5ea623e-e74d-4840-a6a1-81a5d9deba73" class=""><strong>1.2. </strong><strong>Aplicar Actualizaciones:</strong></h3><p id="edf7db24-8b33-4898-bb64-5b6d09fd2059" class="">Instala las actualizaciones identificadas.</p><pre id="af86c5c9-6e36-4f52-a422-bc98ee2241a5" class="code code-wrap"><code>sudo apt -y upgrade</code></pre><ul id="7f2fd0ca-501b-437b-8b17-691d14e9f906" class="toggle"><li><details open=""><summary><strong>Terminología Básica</strong>:</summary><ul id="5e033e48-be60-4c35-8798-7820b6c03d26" class="bulleted-list"><li style="list-style-type:disc"><code><strong>sudo</strong></code>: Da permisos de administrador.</li></ul><ul id="4df8bf91-b169-4953-af92-cf84b57ebed2" class="bulleted-list"><li style="list-style-type:disc"><code><strong>apt</strong></code>: Herramienta para gestionar paquetes.</li></ul><ul id="0de79458-9ab0-4c79-ae28-7e5449d83ea7" class="bulleted-list"><li style="list-style-type:disc"><code><strong>update</strong></code>: Busca actualizaciones.</li></ul><ul id="a0a369ac-a70b-41fb-bc04-ba176b0e92bc" class="bulleted-list"><li style="list-style-type:disc"><code><strong>y</strong></code>: Acepta las operaciones propuestas.</li></ul><ul id="6ef84c62-8a24-4ab0-9e78-f6396b4782a8" class="bulleted-list"><li style="list-style-type:disc"><code><strong>upgrade</strong></code>: Instala las actualizaciones encontradas.</li></ul></details></li></ul><hr id="2d7519f8-1d4b-4a8b-8562-9e407f5d0a1a"/><h2 id="f8ce277b-7de2-4a97-9820-2eb752097c7f" class=""><strong>2. Instalación de Python</strong></h2><p id="5581beba-87d0-46ac-b47a-0d32c08c01ee" class="">Python es uno de los lenguajes de programación más populares. Veamos cómo instalarlo.</p><h3 id="8b7bb112-7961-4769-b032-a55cc5a0d476" class=""><strong>2.1. Instalar Python 3:</strong></h3><pre id="fcb99955-57c8-4946-b77d-3f6295b434e7" class="code code-wrap"><code>sudo apt install -y python3</code></pre><h3 id="87e6057f-3ea4-440c-b627-b35aabed73a7" class=""><strong>2.2. Verificar Instalación:</strong></h3><p id="8dc6a1c9-df18-4f4b-b97f-9d313e340ddf" class="">Asegúrate de que Python esté instalado y verifica su versión.</p><pre id="c8f6d349-7f2f-4472-ab7d-d3747b9975de" class="code code-wrap"><code>python3 -V</code></pre><ul id="59aae0f9-2d26-4aac-b30d-a13ebd076369" class="toggle"><li><details open=""><summary><strong>Terminología Básica</strong>:</summary><ul id="6e026fb1-ffca-454d-997f-bfc5224adb08" class="bulleted-list"><li style="list-style-type:disc"><code><strong>install</strong></code>: Comando para añadir un programa.</li></ul><ul id="776e76c9-95f7-4c5a-8e37-90c77274b296" class="bulleted-list"><li style="list-style-type:disc"><code><strong>python3</strong></code>: Versión de Python que estamos instalando.</li></ul><ul id="ba20dd1c-6f93-4305-b5eb-2668d613c752" class="bulleted-list"><li style="list-style-type:disc"><code><strong>V</strong></code>: Verifica la versión instalada.</li></ul></details></li></ul><hr id="fafe73e9-1b10-4862-bd07-a6d26778a64a"/><h2 id="ae29ef97-3201-4720-a808-bc4dba2e97b8" class="">3.<strong><strong> Gestor de Herramientas Python (PIP3)</strong></strong></h2><h3 id="b499c541-e924-4115-9d27-8091632b7296" class="">3.1<strong>. Instalar PIP3:</strong></h3><p id="2b4a91c5-7959-48b5-8a19-bc53c1a5b67d" class="">Comando para instalar al administrador de herramientas Python, PIP3.</p><pre id="37845c10-84f6-4288-92d6-7b44c021f977" class="code code-wrap"><code>sudo apt install -y python3-pip</code></pre><h3 id="44d0adc3-12cc-443b-a23f-cecb38e98c07" class="">3.2<strong>. Verificación de PIP3:</strong></h3><p id="15493d33-64b7-4741-a3f3-bb1308b5ba14" class="">Instrucción para validar la correcta implementación de PIP3.</p><pre id="1d656c69-0a18-45db-9089-c0f7f6c0419b" class="code code-wrap"><code>pip3 -V</code></pre><ul id="2cbae222-9a17-4809-b18e-5a803a0c73e6" class="toggle"><li><details open=""><summary><strong>Terminología de Comandos:</strong></summary><ul id="ac4ea2de-b38f-433c-90b5-50fc73ca1de5" class="bulleted-list"><li style="list-style-type:disc"><code>install</code>: Directiva para añadir un paquete.</li></ul><ul id="60e9af58-dd1b-467b-b9c5-00bc4ba9aa84" class="bulleted-list"><li style="list-style-type:disc"><code>python3-pip</code>: Administrador de herramientas de Python.</li></ul><ul id="6a2db119-78ae-47a7-a995-d0baafbca996" class="bulleted-list"><li style="list-style-type:disc"><code>V</code>: Comando para verificar la versión.</li></ul></details></li></ul><hr id="060c6d43-d600-489e-bf5c-979f6a1ba780"/><h2 id="a601183f-a008-4999-be07-adf852acf5bb" class="">4.<strong> Herramientas Esenciales de Desarrollo</strong></h2><p id="27025ea4-2ed9-4e07-8135-4e13e9fcb925" class="">Comando para instalar las herramientas y bibliotecas esenciales que son comúnmente requeridas para compilar y construir software, especialmente aquellos relacionados con Python y aplicaciones que necesitan comunicaciones seguras o invocación de funciones entre lenguaje</p><pre id="726c0c54-990f-4f80-a10a-d2e2d54c9909" class="code code-wrap"><code>sudo apt install -y build-essential libssl-dev libffi-dev python3-dev</code></pre><ul id="43ab9c10-f7af-429a-9f53-fdb9e47f9b69" class="toggle"><li><details open=""><summary><strong>Terminología de Comandos:</strong></summary><ul id="5f996ed4-3b71-4097-9539-3b83bd1ba94a" class="bulleted-list"><li style="list-style-type:disc"><code>build-essential</code>: Es un paquete que instala muchas de las herramientas esenciales requeridas para compilar y construir software desde el código fuente en sistemas basados en Debian. Esto incluye cosas como el compilador GCC y herramientas relacionadas.</li></ul><ul id="328b0b01-f9bd-463a-9650-ce98deed0a06" class="bulleted-list"><li style="list-style-type:disc"><code>libssl-dev</code>: Este paquete proporciona archivos de desarrollo para OpenSSL, que es una biblioteca de seguridad robusta que se utiliza para proporcionar comunicaciones seguras en redes y encriptación. Este paquete es necesario si planeas compilar software que requiera OpenSSL.</li></ul><ul id="a19bbebf-8466-4ac7-8e1f-8674304dfa0c" class="bulleted-list"><li style="list-style-type:disc"><code>libffi-dev</code>: Biblioteca de Invocación de Funciones Extranjeras (Foreign Function Interface, FFI) que proporciona una forma de llamar a funciones escritas en un lenguaje de programación desde otro. <code>libffi-dev</code> proporciona los archivos de desarrollo para esta biblioteca, y es comúnmente requerido para compilar ciertos paquetes de Python, como aquellos que requieren la extensión CFFI.</li></ul><ul id="747291fc-98f7-4551-985c-be639d74f9c5" class="bulleted-list"><li style="list-style-type:disc"><code>python3-dev</code>: Contiene los archivos de encabezado y bibliotecas estáticas de Python que son necesarios si quieres compilar extensiones de Python o incrustar Python en otra aplicación.</li></ul></details></li></ul><hr id="8492aad8-303c-42bc-9e67-3aa3f959d018"/><h2 id="d5191e60-3833-4285-af4d-44440eb32137" class="">5.<strong> Entornos Virtuales</strong></h2><p id="c0d63960-10cc-4e38-8b1a-bc58b2dd4389" class="">Comando para instalar los entornos virtuales de Python.</p><pre id="4a192dc8-a496-48f8-a1f0-921873f2fda8" class="code code-wrap"><code>sudo apt install -y python3-venv</code></pre><hr id="05a91eaa-f90f-494c-8e68-e49afdac60e7"/><h2 id="1a144996-2e3f-4f72-9adf-2a51bcec06ee" class="">6. <strong>Herramienta: FastAPI</strong></h2><h3 id="e992d0a5-4c2e-4bcd-9953-277c3c0cf85c" class="">6.1<strong>. Instalación de FastAPI:</strong></h3><p id="f7641ab4-a29d-469c-a04f-3abcb5fd0cd2" class="">Comando para instalar FastAPI, para desarrollo backend con Python.</p><pre id="a90592ed-3468-4ec7-8510-cdb2f92ff03e" class="code code-wrap"><code>pip3 install fastapi[all]</code></pre><h3 id="4ca59311-49d7-48c2-bf18-46681de38e9f" class="">6.2<strong>. Instalación de Uvicorn:</strong></h3><p id="ab5721af-8400-47d9-bef3-54fc7aa9eed4" class="">Comando para instalar Uvicorn, permite ejecutar las aplicaciones creadas con FastAPI.</p><pre id="b694414b-85a6-491f-abe6-bdfa4b65ecc3" class="code code-wrap"><code>pip3 install uvicorn</code></pre><hr id="888d446a-dc50-444d-a46d-e5aa16113808"/><p id="ba460da7-d056-4a2a-a56a-ebfd4a0f80f2" class="">
+</p></div></div><p id="b899f473-c684-4892-ad7d-f415b955881a" class="">
+</p></div></article></body></html>

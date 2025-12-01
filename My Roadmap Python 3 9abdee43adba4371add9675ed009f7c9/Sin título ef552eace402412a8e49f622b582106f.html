@@ -1,0 +1,776 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Sin título</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ef552eac-e402-412a-8e49-f622b582106f" class="page sans"><header><h1 class="page-title"></h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><h1 id="f9b4960d-484c-4b82-8cfb-8db6bad03afc" class="">Elementoss basicos de Python</h1><p id="3073b14e-93ea-4c84-af72-7f1ec065241b" class="">estos elementos baicos son para cualquier lenguaje de programacion, no solo son para python. </p><p id="6fe698ad-c4c0-4a17-b0f6-b632d9b0ad3f" class="">
+</p><p id="c9b4a896-cbfd-48d5-b4b5-548cf7ea540e" class="">leguanejs de programacion</p><p id="71bb6686-4f57-4a49-9a56-1949ce988469" class="">se pueden clasificar en, lenguajes basjo nivel, alto nivel. general vs dominio especifico. Interpretado o compilado (explica esto en 3 tablas comparativas por favor)</p><p id="2d464532-55e9-4d37-bc74-7fa9846a6050" class="">
+</p><p id="1eaf0765-7790-4833-bc06-3f6b5dc045d5" class="">Python, es un lenguaje de programación de alto nivel, general e interpretado.</p><p id="730196f3-a1c8-481f-8a68-6dbadf208f97" class="">
+</p><p id="a9d45067-cdc0-4283-aa4a-87a9d993044c" class="">los elementos basicos de python son: (explica estos elementos basicos)</p><ol type="1" id="4063ecc6-dcbb-4a8c-b7de-45e715f81c68" class="numbered-list" start="1"><li>Literales: </li></ol><ol type="1" id="5c90a254-e9fb-4706-bbc2-b4df71dca7ec" class="numbered-list" start="2"><li>Operadores</li></ol><p id="6bd934e8-5dac-498e-ba78-3efae41c0732" class="">
+</p><p id="da39c8da-134b-4b65-bdfe-6b673d1869da" class="">la funcion mas importante de todo lenguaje de programacion es en python print(””) (por favor dime cual es el nombre de esta funcion de manera general para todos los lenguajes, creo que es algo asi como print statment)</p><p id="9a0134a3-6f9c-431e-a5ae-ecf182849972" class="">que srive para imprimir informmacion directamente en la consola</p><p id="2c0c3bbf-2e9e-4f0d-9034-8cbc014f4665" class="">
+</p><p id="b1ea7773-6442-4509-90fd-253cec532660" class="">ejemplo: print(”Hola mundo”)</p><p id="3e15c5dc-3e52-439f-ac02-a4aa0d3b89cc" class="">
+</p><p id="3c8b3d22-091d-49e6-89a5-3cf7bd60e406" class="">Objetos: son la abstraccion mas alta dentro de cualquier lenguaje de programcion, sirven para modelar el mundo en un lenguaje de programación, son valores en emeoria que se pueden referenciar, con algun tipo de variable.</p><p id="c511252f-9cc6-4567-919a-439fd1cdb604" class="">tipos de objetos: pueden dividirse entre escalares y vectoriales </p><p id="f99362ab-65f6-431c-b1d6-5a8062248260" class="">pueden ser enteros, vectores, matrices, listas, etc </p><p id="89f76a09-6199-48c1-9401-1ff061a47005" class="">la clasificacion entre escalares y vectoriales depende de si se puede divir o si no se puede dividir</p><p id="37da55dc-88ad-4ca8-aee4-eb9c92f6d9b9" class="">
+</p><p id="adab4b4d-cdaf-4dcc-b58a-1b19f050bc75" class="">una expresion esta conformada de: Objeto + operador + objeto + opeardor</p><p id="47377751-e395-402d-a652-69edb91ea691" class="">y toda expresion devuleve un valor</p><p id="0c8c8bef-cf3e-470b-8a62-774c30c1e27f" class="">
+</p><p id="19b65b22-c224-4d00-a812-cb6cf34da42e" class="">la funcion type( ) nos regresa el tipo de objetos de una variable.</p><p id="ba48119f-9147-412f-b684-deb9eb3d8d7a" class="">
+</p><p id="1c143ee4-ca6f-418f-adb5-514304c57080" class="">variables:</p><p id="bc1daa4a-5db6-4359-846e-53909868554b" class="">las variables son nombres que se vinculan con un valor en memoria atravez de un operador de asignación.</p><p id="f6eae00a-9e4b-4e66-ab9d-59ab64cdb2bd" class="">asignacion de variables</p><p id="d0dcc222-98dc-410a-aef4-b90822654c52" class="">a = 2, el valor 2 se le esta asignando a a</p><p id="bed682dc-a0a5-47e7-9a8a-d89a1b014ef0" class="">un = significa asignación.</p><p id="96378ae9-7a63-4686-8ec6-58fc9bd8595c" class="">
+</p><p id="73ca102f-ebaa-4194-9754-739050c1a16c" class="">un consejo: los nombres de las variables deben ser lo sufincientemente descriptivos para que cualquier persona que lea el odigo, entienda lo que el programa esta asiendo, por lo tanto, los nombres de las variables deben ser nombres reales que signifiquen algo. </p><p id="730ff4f8-94fd-4360-98b7-3eed98d72d28" class="">
+</p><p id="87ba4257-e46a-4f5d-8050-3bc1d4c1c76d" class="">las variables pueden tener mayusculas, minuscular, numeros, sin comenzar con uno, y el simbolo_</p><p id="d874ca38-ff43-41b9-978b-b6d3711370d3" class="">
+</p><p id="07f7fb13-1434-44c3-95b8-095b5dd67491" class="">las variables no se pueden llamar como las variables reservadas. (revisar la documentacion de python para buscar las palabras reservadas.)</p><p id="555438c3-7bd2-4eb5-9923-745f080b502e" class=""> </p><figure id="156b90b1-71d2-4116-b1ff-b535ff236f32"><a href="https://docs.python.org/2.5/ref/keywords.html" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">2.3.1 Keywords</div><div class="bookmark-description">The following identifiers are used as reserved words, or
+keywords of the language, and cannot be used as ordinary
+identifiers.  They must be spelled exactly as written here:</div></div><div class="bookmark-href"><img src="https://docs.python.org/2.5/icons/pyfav.png" class="icon bookmark-icon"/>https://docs.python.org/2.5/ref/keywords.html</div></div></a></figure><figure id="1e3f5c26-b4c0-4b92-85ad-99004a378905" class="image"><a href="Sin%20ti%CC%81tulo%20ef552eace402412a8e49f622b582106f/Untitled.png"><img style="width:479px" src="Sin%20ti%CC%81tulo%20ef552eace402412a8e49f622b582106f/Untitled.png"/></a></figure><p id="fec3fe7d-e54d-4137-bb1c-6df6693ac3e3" class="">
+</p><p id="f7b39cd2-06d4-458c-aeeb-92ab1b952dcb" class="">las variables hacen los pogramas mas comprensibles.</p><p id="e4b348c3-069f-4cbe-82a7-96b07ffae025" class="">son simplemente nombres que apuntan a un valor en memoria</p><p id="b266d19a-986a-4dc9-b141-1d7588b75195" class="">el operador de asignacion  = asocia una variable con un valor</p><p id="dbe95653-2795-485b-88f3-3b230ce8fc1a" class="">
+</p><p id="d2863d4d-6082-4c01-928f-75a83c8bfbc7" class="">
+</p><p id="46ebdff0-3996-4842-8d7b-2f6164501f9b" class="">cadena: ‘123’</p><p id="05d2672f-abd7-4763-9414-eb38af58840e" class="">se pueden contatenar y multiplicar cadenas con + y * (muestra ejemplos por favor)</p><p id="3ab26dbf-3524-4dd8-a0b6-118dd68e440f" class="">otras operaciones con las cadenas: (explicalo con codigo y ejemplos por favor)</p><p id="b6063bb2-fbbd-432d-b3bc-c60292c09eeb" class="">len longitud</p><p id="c72e528f-9e4d-4f08-862e-f32f6ea50700" class="">indexing indexacion, para aceder a estos elementos</p><p id="dfb5167b-4707-41d2-a3c5-5dfa0645d014" class="">slicing rebanadas<div class="indented"><p id="1f59da0c-b1ab-48a3-98ba-cfc6c336baa1" class="">my_str [comienzo:fin:pasos]</p><p id="5b772d99-6385-4a97-9c3b-50d2804a2bed" class="">
+</p></div></p><p id="0b01602e-f6bb-4cd4-853b-f7488e7f0f9f" class="">(por favor explicame la cadema de formato f’ {} ‘  y en que se diferencia de suar print{},  ventajas, desventajas, hazme una comparativa de estos for dormatos diferentes. )</p><p id="a0b081d9-b1ae-4172-a6d8-91874426a9cb" class="">
+</p><p id="08a4f96f-6f6e-4274-89b5-3966e6f99314" class="">los objetos de tipo cadenas, pueden representarse con ‘’ o “”</p><p id="499f9dfd-e005-479d-8500-8a47a67e2eb1" class="">el operador + tiene diferenete significado segun el tipo de dato (overloaded). Con cadenas significa concatenacion</p><p id="88220d1a-e128-496f-845d-97037592594e" class="">el operador * es el operador de repeticion con cadenas</p><p id="dc288fd1-2123-4e12-98e2-7029a605c548" class="">las cadenas son inmutables, una vez declaradas en memoria ya no peude modifcarse, </p><p id="1003c2d9-dadb-4ff8-89d0-77b9eebc4051" class="">
+</p><p id="49559f6e-32c1-43bf-bbbb-418feba8d3a3" class="">
+</p><p id="6068af49-be55-4f35-91f3-562056c2af75" class="">Entradas: </p><p id="429a32ed-a87b-438b-b09f-87cd12b47e75" class="">python tiene la funcion input para recibir datos del usuario del programa</p><p id="fdf78f25-0af2-4942-b787-4889a1579fb2" class="">input siempre regresa cadenas, por lo que si queremos utilizar otro tipo, tenemos que hacer type casting</p><p id="56244c73-5c54-4423-b7fe-d0fab2948e1e" class="">
+</p><p id="0294d012-8891-4acd-9d86-071914e62923" class="">
+</p><p id="ecad7783-853b-403e-b8d6-e7f9e9872c6a" class="">programas ramificados:</p><p id="103796f0-253d-4944-af49-7b671eb2eb44" class="">operadores de comparaci’on:</p><p id="9465933b-8ccf-43f7-b277-58f78630549b" class="">== igual ! = desigualdad, &gt;, &lt; &gt;=, &lt;=</p><p id="7a55be28-8131-422b-9d3d-d0cf15c5d043" class="">
+</p><p id="12111d86-6542-4ac0-b26d-deac4fd30aa8" class="">operadores logicos</p><p id="feac17af-3509-42ec-89b4-d2c3277fabfa" class="">and, or, not</p><p id="8e8ee0cb-e764-4c8e-9099-580057079599" class="">
+</p><p id="8fd6d210-c80f-486d-b80f-a3b12b67bfa7" class="">
+</p><p id="83f30a0c-bd2c-4864-b1fd-98150cd6253c" class="">if condicion:<div class="indented"><p id="db10c2fb-acb6-4d64-8fba-d0ce7c0d40f9" class="">expresion</p><p id="36d215ad-6b67-4738-a092-c82286287ca3" class="">
+</p></div></p><p id="b4fc3600-4bf0-4c4c-a1d1-b90f827a3c02" class="">if condicion:<div class="indented"><p id="3c1e8a02-cbd6-4873-a8f7-0d41690b3cf6" class="">expresion</p></div></p><p id="ba085592-8b8f-4e01-b6c4-be4b31dae060" class="">else: <div class="indented"><p id="c9486396-4707-4ef2-ae92-ce38cd0522ad" class="">expresion</p></div></p><p id="e4b9c495-b008-4b22-9cea-10190388f83f" class="">
+</p><p id="8bf08b8d-4cd4-439c-af15-01991088105a" class="">if condicion:<div class="indented"><p id="6da91c34-c466-457f-93d4-75461bbc934d" class="">expresion</p></div></p><p id="4ae23ad3-c6be-46b3-8496-cf89cdcec9e5" class="">elif condicion:<div class="indented"><p id="c67948fd-9e1b-4af7-bc96-0c9965c9a3d6" class="">expresion</p></div></p><p id="64ae2432-3397-4dd7-a322-418922256af9" class="">else</p><p id="17adf5a1-ac19-4884-8759-99be42af13b6" class="">
+</p><p id="9ef7ec7f-fa2d-43c5-bdd3-25beb6471c6d" class="">en la estructura if-elif-else, pueden haber tantos el-if como se necesiten.</p><p id="6f93286c-1cf1-44e7-bbe1-b224aa7ffbfe" class="">
+</p><p id="b9903383-325f-4d41-9d8a-5fa093e9e62f" class="">iteraciones (loops)</p><ul id="09a2415c-6708-46f0-be42-e67169f400ee" class="bulleted-list"><li style="list-style-type:disc">la mayoria de las tareas computaciones no se pueden lograr con ramificaciones</li></ul><ul id="38eb2660-4570-4f5b-915b-02f1a89b6ced" class="bulleted-list"><li style="list-style-type:disc">Cuando queremos que un programa haga lo mismo varias veces, utilizamos iteraciones dentro de iteraciones</li></ul><ul id="5aa0b09f-6386-4ec4-9c26-5cffde8d58b4" class="bulleted-list"><li style="list-style-type:disc">podemos utilizar break para salir anticipadamente de una interacion</li></ul><ul id="c758cf7d-6d66-4b7d-a17e-fcf79c6885e6" class="bulleted-list"><li style="list-style-type:disc">tener cuidado de iteraciones infinitas</li></ul><p id="94e92088-df22-49b0-ae90-a19628c8d2b6" class="">
+</p><p id="31f9cefd-590a-40ab-b795-1f0bca7e5db6" class="">dame un ejemplo de la estrucutra de funcionamiento de un; while</p><p id="aea470a4-d18d-4ba5-8bd3-03406ef79eb8" class="">
+</p><p id="a987c159-6708-4b36-81a6-31afd19fae89" class="">Los bucles, en diversos lenguajes de programación pueden ser definidos o indefinidos. Los bucles definidos preestablecen las condiciones de la iteración por adelantado. Por su parte, los bucles indefinidos establecen la condición en la que una iteración terminará. En este último tipo de bucles existe el riesgo de que el bucle se vuelva infinito (cuando la condición de suspensión nunca se cumple).</p><p id="cbd8ca12-6d3c-4bc7-8bdb-f695b7aff3c1" class="">Los bucles definidos se implementan en Python a través del keyword <code>for</code>. Por su parte, los bucles indefinidos se implementan con el keyword <code>while</code>.</p><p id="310ba80b-12ee-4766-937b-0c8f40a8c72a" class="">Sin embargo, esta no es la única forma de implementar bucles definidos. Por ejemplo, Javascript puede implementar un bucle definido mediante el siguiente constructo:</p><pre id="fba222e3-696f-4fea-b488-165eeba97d4a" class="code code-wrap"><code>for (i = 0; i &lt;= 10; i++) {
+  &lt;expresión&gt;
+}
+</code></pre><p id="9fd5caeb-e1bd-4b84-80ff-833c1294ca9e" class="">El bucle se puede leer de la siguiente manera:</p><ul id="326c0630-cad7-4901-a504-f4f7f8bf565e" class="bulleted-list"><li style="list-style-type:disc">Inicializa el bucle en 0</li></ul><ul id="797756e3-e108-45ab-bdab-c1be7923da82" class="bulleted-list"><li style="list-style-type:disc">Continua el bucle mientras <code>i</code> sea menor o igual que 10</li></ul><ul id="280ea320-f7f5-46e0-b835-3d0ba97af101" class="bulleted-list"><li style="list-style-type:disc">Incrementa i en uno al final de cada iteración</li></ul><p id="a243c765-9c16-40d0-aa6a-32db0ae3d0af" class="">Es importante señalar que la expresión <code>i++</code> es equivalente a lo que en Python escribiríamos como <code>i += 1</code>.</p><p id="6dcf674a-0d41-45bf-bdb9-38204237c04e" class="">Una segunda forma de crear un bucle definido es iterando en una colección de objetos. Esta es la forma que Python utiliza:</p><pre id="36689175-4c20-4d83-bcca-b7637c354827" class="code code-wrap"><code>for &lt;variable&gt;in &lt;iterable&gt;:
+    &lt;expresión&gt;
+</code></pre><h2 id="7a71baed-3e6c-4baf-982c-d646c5caa3fd" class="">El bucle for en Python</h2><p id="c4361f56-192d-4675-8efd-aff0b184fca3" class="">En la definición anterior debemos entender <code>&lt;iterable&gt;</code> como una colección de objetos; y la <code>&lt;variable&gt;</code> como el elemento específico que se está exponiendo mediante el bucle en cada iteración.</p><pre id="36177bbe-6411-4dba-97a7-bcdafedb5fb0" class="code code-wrap"><code>&gt;&gt;&gt; frutas = [&#x27;manzana&#x27;, &#x27;pera&#x27;, &#x27;mango&#x27;]
+&gt;&gt;&gt;for frutain frutas:
+        print(fruta)
+
+manzana
+pera
+mango
+</code></pre><h3 id="6621b364-81ca-4832-b059-95e72b9a94ec" class="">Iterables</h3><p id="daad5a41-2f05-42e8-8ad5-02c9234ad1c4" class="">En Python, un iterable es un objeto que se puede utilizar en un bucle definido. Si un objeto es iterable significa que se puede pasar como argumento a la función <code>iter</code>. El <code>iterable</code> que se pasa como parámetro a la función <code>iter</code></p><p id="c1eba6ce-cc76-4276-a9e6-d54cd121bbcd" class="">regresa un <code>iterator</code>.</p><pre id="545b4768-db09-4e22-ae0d-79c4133a9327" class="code code-wrap"><code>&gt;&gt;&gt; iter(&#x27;cadena&#x27;) # cadena
+&gt;&gt;&gt; iter([&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]) # lista
+&gt;&gt;&gt; iter((&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;)) # tupla
+&gt;&gt;&gt; iter({&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;}) # conjunto
+&gt;&gt;&gt; iter({&#x27;a&#x27;: 1, &#x27;b&#x27;: 2, &#x27;c&#x27;: 3}) # diccionario
+</code></pre><p id="54f2efb8-4fc2-420b-b5aa-bf99f783b860" class="">Todas las llamadas anteriores regresan un objeto de tipo <code>iterator</code>.</p><p id="8356599d-8f1f-423f-bbca-dae253275fb2" class="">¿Qué pasa si le pasamos a la función <code>iter</code> un objeto que no es <code>iterable</code>? Obtendremos un <code>TypeError</code> que señala que el objeto no es un <code>iterable</code>. Esto es un ejemplo de programación defensiva en el que Python verifica el tipo del</p><p id="b0609f44-5326-40af-9e2a-c65c3ba1177b" class="">objeto antes de proceder al cómputo. ¡Intentalo en tu consola!</p><p id="9106aa49-4413-483f-9def-f5947e12a46c" class="">Es importante señalar que estos no son los únicos tipos de objetos que pueden ser <code>iterable</code>. Existen gran cantidad de ejemplos en la librería estándar y, de hecho, casi cualquier objeto se puede convertir en un <code>iterable</code> (pero eso</p><p id="bab86f6b-d313-4510-828e-4c60c13e98fa" class="">ya lo veremos cuando hablemos de Python avanzado).</p><h3 id="7ca9534e-e061-418f-9dc2-ac3e6cf18d39" class="">Iterators</h3><p id="a9d24721-cfe0-4ebb-aa8d-ccf540ce75dd" class="">Ahora que ya sabemos cómo obtener un <code>iterator</code>, ¿Qué podemos hacer con él? Un <code>iterator</code> es un objeto que regresa sucesivamente los valores asociados con el <code>iterable</code>.</p><pre id="4d8f5a7a-d36c-4c2c-868f-630293cccbab" class="code code-wrap"><code>&gt;&gt;&gt; frutas = [&#x27;manzana&#x27;, &#x27;pera&#x27;, &#x27;mango&#x27;]
+&gt;&gt;&gt; iterador = iter(frutas)
+&gt;&gt;&gt; next(iterador)
+manzana
+&gt;&gt;&gt; next(iterador)
+pera
+&gt;&gt;&gt; next(iterador)
+mango
+</code></pre><p id="b0ccf60a-623d-422c-ac1e-ce08a2c0fe73" class="">Como puedes ver, el <code>iterator</code> guarda el estado interno de la iteración, de tal manera que cada llamada sucesiva a <code>next</code> regresa el siguiente elemento. ¿Qué pasa una vez que ya no existan más elementos en el <code>iterable</code>? La llamada</p><p id="0d63e13e-61aa-4b00-8c1e-d3455096f32d" class="">a <code>next</code> arrojará un error de tipo <code>StopIteration</code>.</p><h3 id="a717ac94-2cba-4e77-a51f-e3f47762535b" class="">¿Cómo implementa Python los bucles definidos?</h3><p id="e7f26154-c167-414f-bd95-8c0583959ace" class="">Ahora ya conocemos todos los elementos necesarios para entender que es lo que sucede en Python cuando ejecutamos un bucle <code>for</code>. Considera nuevamente el siguiente código:</p><pre id="4f7c490f-03e9-4575-b2e4-461657c9437e" class="code code-wrap"><code>&gt;&gt;&gt; frutas = [&#x27;manzana&#x27;, &#x27;pera&#x27;, &#x27;mango&#x27;]
+&gt;&gt;&gt;for frutain frutas:
+        print(fruta)
+</code></pre><p id="e3a16d79-6e18-4b13-9c48-90dc814a918c" class="">Este bucle se puede describir con los conceptos que explicamos previamente:</p><ol type="1" id="52053bf2-99cd-4abe-bf63-1fb0010050dc" class="numbered-list" start="1"><li>Python llama internamente la función <code>iter</code> para obtener un <code>iterator</code></li></ol><ol type="1" id="5994a469-11c8-4719-8785-b02d2c4354d0" class="numbered-list" start="2"><li>Una vez que tiene un <code>iterator</code> llama repetidamente la función <code>next</code> paratener acceso al siguiente elemento en el bucle.</li></ol><ol type="1" id="f85a2355-4ed9-4799-ae34-a6968f5d8f53" class="numbered-list" start="3"><li>Detiene el bucle una vez que se arroja el error <code>StopIteration</code>.</li></ol><h2 id="f19f569a-c63f-4193-aa6c-03994eac3237" class="">Bucles for con diccionarios</h2><p id="129f9970-b599-4e5e-a94e-4437618a38d9" class="">Para iterar a lo largo de un diccionario tenemos varias opciones:</p><ul id="2b6688c7-9d9e-4a87-9c26-564b9c77fe3b" class="bulleted-list"><li style="list-style-type:disc">Ejecutar el bucle <code>for</code> directamente en el diccionario, lo cual nos permiteiterar a lo largo de las llaves del diccionario.</li></ul><ul id="4f624e8e-0145-4d87-a0ff-3453a06a44a9" class="bulleted-list"><li style="list-style-type:disc">Ejecutar el bucle <code>for</code> en la llamada <code>keys</code> del diccionario, lo cual nos permiteiterar a lo largo de las llaves del diccionario.</li></ul><ul id="d7fd667e-9fef-4a3c-9363-269dbc4eec2b" class="bulleted-list"><li style="list-style-type:disc">Ejecutar el bucle <code>for</code> en la llamada <code>values</code> del diccionario, lo cual nospermite iterar a lo largo de los valores del diccionario.</li></ul><ul id="c1f6edd4-399e-403c-a8b4-73f84002a40f" class="bulleted-list"><li style="list-style-type:disc">Ejecutar el bucle <code>for</code> en la llamada <code>items</code> del diccionario, lo cual nospermite iterar en una tupla de las llaves y los valores del diccionario.</li></ul><pre id="e4dc7c81-e7a4-47a0-b465-37c7323f13d9" class="code code-wrap"><code>estudiantes = {
+    &#x27;mexico&#x27;: 10,
+    &#x27;colombia&#x27;: 15,
+    &#x27;puerto_rico&#x27;: 4,
+}
+
+for paisin estudiantes:
+    ...
+
+for paisin estudiantes.keys():
+    ...
+
+for numero_de_estudiantesin estudiantes.values():
+    ...
+
+for pais, numero_de_estudiantesin estudiantes.items():
+    ...
+</code></pre><h2 id="829c4422-a846-45f6-a30c-af7133cf30ee" class="">Modificación del comportamiento de un bucle for</h2><p id="0dc3835a-a2a9-49d0-9187-527bddad0002" class="">Podemos modificar el comportamiento de un bucle <code>for</code> mediante los <em>keywords</em></p><p id="68dba9ab-c4be-463d-b2e5-76e221913f35" class=""><code>break</code> y <code>continue</code>.</p><p id="3e3e365a-0619-484a-8366-649713856c9c" class=""><code>break</code> termina el bucle y permite continuar con el resto del flujo de nuestro</p><p id="1e36f358-54f1-4de0-9bc0-e17e673f6e9a" class="">programa.</p><p id="39073979-501a-49a9-805f-5e0aa5fd8203" class=""><code>continue</code> termina la iteración en curso y continua con el siguiente ciclo de</p><p id="92980094-e5ec-4e37-b904-91c7727a4979" class="">iteración.</p><h2 id="edd850a8-0c7b-4854-ae20-3246e0bf3ccc" class="">Conclusiones</h2><p id="7b76f111-c5e5-4e61-bb0e-16ecb93f905a" class="">Como pudimos observar, Python implementa los bucles definidos mediante los bucles <code>for</code>. Esta implementación nos permite iterar a lo largo de cualquier objeto que sea iterable. Para iterar necesitamos un iterador que nos regresará</p><p id="9ee9cc4d-6af2-43b4-b6ae-6558738467e8" class="">el siguiente valor en cada iteración. Todo esto, Python lo puede hacer por nosotros con el constructo <code>for ... in ...</code>.</p><p id="4b286894-3a69-4983-8a92-e9a7242f5fb6" class="">
+</p><hr id="0e6941d9-3bed-4e1e-ad38-f097e89dc4e9"/><h1 id="ea9e0b7b-347a-4233-a2ed-78168d65c6f6" class="">Programas numéricos</h1><h2 id="da402f53-6e16-4463-a1bd-7e667eaad3dc" class="">Representación de los flotantes</h2><p id="b879db49-153b-4e93-aa74-9cad68f2a8fb" class="">La mayoría del tiempo los números flotantes (tipo <code>float</code>) son una muy buena aproximación de los números que queremos calcular con nuestras computadoras. Sin embargo, “la mayoría del tiempo” no significa todo el tiempo, y cuando no se comportan de esta manera puede tener consecuencias inesperadas.</p><p id="9a488c7e-6843-4df8-a838-322837886462" class="">Por ejemplo, trata de correr el siguiente código:</p><pre id="f41a8bec-8218-484e-aba9-cc477fe644c9" class="code code-wrap"><code>x = 0.0
+for iin range(10):
+    x += 0.1
+
+if x == 1.0:
+    print(f&#x27;x = {x}&#x27;)
+else:
+    print(f&#x27;x != {x}&#x27;)
+</code></pre><p id="2394a713-aba9-4fb6-b142-3f509da5583d" class="">Es probable que te hayas sorprendido con el resultado. La mayoría de nosotros esperaríamos que imprimiera <code>1.0</code> en vez de <code>0.999999999999</code>. ¿Qué es lo que pasó?.</p><p id="cf7a1d8f-49df-4760-880b-b462d034e029" class="">Para entender qué es lo que pasó tenemos que entender que es lo que pasa en la computadora cuando realizamos cómputos con números flotantes. Y para eso necesitamos entender números binarios.</p><p id="36d2bca2-3ada-4573-9126-30acd5678ec7" class="">Cuando aprendiste a contar, lo que en realidad aprendiste es una técnica combinatoria para manipular los siguientes símbolos que le llamamos números: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.</p><p id="abb23dc0-af6e-4642-b330-07bba6412354" class="">La forma en la que funciona esta técnica es asignando el número 10 a la 0 al número de la extrema derecha, 10 a la 1 al siguiente, 10 a la 2 al siguiente y así sucesivamente. De tal manera que el número 525 es simplemente la representación de <code>(5 * 100) + (2 * 10) + (5 * 1)</code>.</p><p id="0da5c660-305f-477d-96ad-768732d02de7" class="">Esto nos dice que el número de números que podemos representar depende de cuanto espacio tengamos. Si tenemos un espacio de 3, podemos representar 1,000 números (10 elevado a la 3) o la secuencia del 0 al 999. Si tenemos 4, podemos representar 10,000 (10 elevado a la 4) o la secuencia del 0 al 9,999. De manera general podemos decir que con una secuencia de tamaño n, podemos representar 10 elevado a la n números.</p><p id="6f6802a3-a2da-4ff6-8d3e-07ff1bd0cbb5" class="">Los números binarios funcionan de la misma manera (de hecho cualquier número en cualquier base, por ejemplo, octales o hexadecimales). La única diferencia es cuántos símbolos tenemos para representar. En binario nada más tenemos 0, 1;</p><p id="631b3218-eb8d-4776-a947-93b42acc54f6" class="">en hexadecimal tenemos 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f.</p><p id="c092ba73-05e7-4d7a-894f-de2afbcfd295" class="">De esta manera podemos decir que el número de la extrema derecha es <code>cantidad_de_simbolos**0</code>, <code>cantidad_de_simbolos**1</code>, <code>cantidad_de_simbolos**2</code>, etc. Por lo que en binario, que nada más tenemos 2 símbolos, decimos <code>2**0</code>, <code>2**1</code>, <code>2**2</code>, etc. Por ejemplo el número binario 101 es la representación de <code>(1 * 4) + (0 * 2) + (1 * 1)</code>, es decir 5.</p><p id="967dccea-613f-47a4-9e28-e20a7762a573" class="">Esta representación nos permite trabajar con todos los números positivos enteros dentro del computador, pero ¿Qué hacemos con los negativos y los racionales?.</p><p id="a205d1fe-c799-4cb9-80a0-aac977b0c842" class="">El caso de los números negativos es sencillo: simplemente agregamos un bit adicional que representa el signo y la añadimos en la extrema izquierda. Por lo que el número <code>0</code>101 sería +5 y el número <code>1</code>101 sería -5.</p><p id="2ab61232-0b26-4967-996a-d48efc7b55e6" class="">El caso de los racionales es más complejo. En la mayoría de los lenguajes de programación modernos los racionales utilizan una implementación llamada punto flotante. ¿Cómo funciona esta representación?.</p><p id="1eaaa3b2-ed36-4817-a09a-08343c6c7560" class="">Antes de pasar a binario, vamos a pretender que estamos trabajando con una computadora basada en decimales. Un número flotante lo representaríamos con un par de enteros: los dígitos significativos y el exponente. Por ejemplo, el número 2.345 se representaría como <code>(2345 * 10**-3)</code> o <code>(2345, -3)</code>.</p><p id="a06524fb-efa8-4379-ae20-e72878eb2eff" class="">El número de dígitos significativos determinan la precisión con la que podemos representar número. Por ejemplo si nada más tuviéramos dos dígitos significativos el número 2.345 no se podría representar de manera exacta y tendríamos que convertirlo a una aproximación, en este caso 2.3.</p><p id="83efb633-6f62-4587-9c71-d96f7efdc1ca" class="">Ahora pasemos a la verdadera representación interna de la computadora, que es en binario. ¿Cómo representarías el número 5/8 o 0.625? Lo primero que tenemos que saber es que 5/8 es en realidad el número <code>5 * 2**-3</code>. Por lo que podríamos decir (101, -11) (recuerda que el número 5 es 101 en binario y el 3 es 11).</p><p id="6bd502ac-28d7-40ef-99f4-5eb0a41dbe33" class="">Regresemos a nuestro problema inicial: ¿Cómo representaremos 1/10 (que escribimos en Python cómo 0.1)? Lo mejor que podemos hacer con cuatro dígitos significativos es (0011, -101) que es equivalente a 3/32 (0.09375). ¿Qué tal si tuviéramos cinco dígitos significativos? La mejor representación sería (11001, -1000) que es equivalente a 25/256 (0.09765625). ¿Cuántos dígitos significativos necesitamos entonces? Un número infinito. No existe ningún número que cumpla con la siguiente ecuación: <code>sim * 2**-exp</code>.</p><p id="209af9be-6a51-4e0a-a82f-713cdd4c6009" class="">En la mayoría de las implementaciones de Python tenemos 53 bits de precisión para números flotantes. Así que los dígitos significativos para representar el número 0.1 es igual a:</p><p id="d8884031-63cc-4bd4-a293-0ce9a65343b7" class="">11001100110011001100110011001100110011001100110011001 que es equivalente al número decimal: 0.1000000000000000055511151231257827021181583404541015625</p><p id="566f81c6-c04a-4a9e-b8f4-dd51d59172d5" class="">Muy cercano a 1/10 pero no exactamente 1/10. Ahora ya sabemos la razón de esa respuesta tan extraña. Hay muy pocas situaciones en la que 1.0 es aceptable, pero 0.9999999999999999 no. Pero ¿Cuál es la moraleja de esta historia?</p><p id="45303e6b-dca2-4831-82c4-7a7c6a258e87" class="">Hasta ahora hemos verificado igualdad con el operador <code>==</code>. Sin embargo, cuando estamos trabajando con flotantes es mejor asegurarnos que los números sean aproximados en vez de idénticos. Por ejemplo <code>x &lt; 1.0 and x &gt; 0.99999</code>.</p><h2 id="a4d14e21-37f9-40d5-8101-63fe21fc2605" class="">Enumeración exhaustiva</h2><p id="926351e2-b9ff-4fe4-8b4c-7db683ac573d" class="">
+</p><p id="58bc2856-2a8e-48c1-9c50-c8c558ddd5ed" class="">
+</p><h2 id="2e6d0250-8812-4658-9956-5939c917caba" class="">Aproximación de soluciones</h2><p id="aed6125c-72d8-4ca1-8d54-4715a22e3b16" class="">
+</p><p id="83c41870-840e-45c8-987d-90a69e541c8a" class="">
+</p><h2 id="8c3b3df4-e631-4337-8217-8f34550f805b" class="">Búsqueda binaria</h2><p id="af97d254-2808-470a-97d1-10202d70a02a" class="">
+</p><p id="5f9c8b81-8fdb-4237-babc-5923aece77c2" class="">
+</p><hr id="67f59b7e-8f4a-4ba3-86a0-51c56495c21f"/><h1 id="0bed4dbe-9a41-4ff8-bef9-bbcbc41b352c" class="">Funciones, alcance y abstracción.</h1><h2 id="a52e262a-aeae-42e3-958c-ad90d688ec70" class="">Funciones y abstracción</h2><p id="9aaf0954-c7cd-43a2-83f1-609b8ea11d38" class="">
+</p><h2 id="a0d70b44-5730-4d40-9204-b947001d2331" class="">Scope o Alcance</h2><p id="38d0e022-196a-470f-86a4-0f587098ebc1" class="">
+</p><p id="b792c44d-42d8-4f0d-a276-7cfbc92b6759" class="">
+</p><h2 id="057b682c-2c32-4bb5-ad44-c695b8f0ce2f" class="">Especificaciones del código</h2><p id="18ce04fb-56b3-4647-ba41-446990feaa72" class="">
+</p><h2 id="8bdd37aa-33df-4ea4-8372-14667e29d228" class="">Recursividad</h2><p id="4625a5fb-3ee3-4de4-98ca-f18dcdfe0ac8" class="">
+</p><h2 id="442a89ad-6399-4799-a920-eb7c01bc77ab" class="">Fonación y la Recursividad</h2><p id="4d238fe2-9927-43b5-abd8-431bc6f06762" class="">
+</p><p id="d59cecab-5c9c-473e-91a9-9267e6ec4dc6" class="">
+</p><hr id="a61aa8ab-860e-4466-b05f-8e84b1a2b30d"/><h1 id="26d1c296-20f7-43a8-95b9-476fcab06a2c" class="">Tipos estructurados, mutabilidad y funciones</h1><p id="954a95b6-791c-47fa-88af-b70944fdde74" class="">
+</p></div></article></body></html>

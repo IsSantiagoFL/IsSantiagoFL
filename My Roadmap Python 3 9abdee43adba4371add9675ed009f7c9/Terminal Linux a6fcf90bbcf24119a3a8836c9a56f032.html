@@ -1,0 +1,737 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Terminal Linux</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a6fcf90b-bcf2-4119-a3a8-836c9a56f032" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><h1 class="page-title">Terminal Linux</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><p id="acca7914-2c20-4ae6-b5d7-a165ceb053d7" class="">                                                                                                                       <em>Autor: Santiago I. Flores</em></p><p id="79ca0177-970b-461d-9bc0-fb2dad119c43" class="">
+</p><p id="fb12f4b2-62d8-4067-ae24-ff99f2cae2c0" class=""><strong>Capítulo 1: Introducción a la Terminal y Línea de Comando en Linux</strong></p><p id="46242e3a-c176-4ed1-8f9d-ba55a8ef5461" class="">La terminal y la línea de comando son herramientas esenciales para interactuar con un sistema operativo basado en Unix, como Linux.</p><h3 id="07a4844b-cebd-45e5-b5ed-f6a82d490c57" class="">Terminal (Emulador de Terminal): </h3><p id="e9677820-094e-4131-9107-d5373da235b4" class="">La “terminal” es una ventana especial que proporciona acceso directo a la <em>línea de comando</em> de un sistema operativo. Al abrir la terminal, te enfrentas a una pantalla de texto en la que puedes interactuar con la computadora mediante comandos. La terminal aloja a lo que se conoce como &quot;shell&quot;, que es el intérprete de comandos que procesa tus instrucciones y las comunica al sistema operativo para que se realicen acciones.</p><h3 id="458c0a5c-35c9-474b-9848-76996e589f64" class="">Línea de Comando (Shell):</h3><p id="1c0a8f12-3062-4da7-abdf-251cf06f10d9" class="">La línea de comando, o shell, es un programa que acepta comandos escritos por el usuario y los traduce en acciones que el sistema operativo puede entender y ejecutar. A través de la línea de comando, puedes realizar una variedad de tareas, desde la gestión de archivos y directorios hasta la configuración del sistema y la ejecución de programas. Es la puerta de acceso a la funcionalidad profunda y poderosa de tu sistema operativo.</p><h2 id="72fca5ca-4f5a-4a02-92cb-755a4e41a04e" class="">Comando:</h2><p id="d0110f03-13d3-4a77-8599-06d5c688784b" class="">Un comando es un programa o una instrucción que puedes ejecutar en la línea de comando. Los comandos pueden recibir parámetros y opciones para modificar su comportamiento. Desde la gestión de archivos hasta la configuración del sistema, los comandos son las herramientas con las que puedes interactuar directamente a través de la terminal.</p><h2 id="e0ad75fb-2639-4b8a-89d4-19ac4b5f7cec" class="">Tipos de Shells:</h2><table id="28c0d76c-6a40-4691-bc40-9361ddb4ff00" class="simple-table"><tbody><tr id="777fa044-a7f4-4cb8-8c6e-e3229aa0dd16"><th id="e@\Z" class="simple-table-header-color simple-table-header">Shell</th><td id="S[{@" class="" style="width:1027.98828125px"></td></tr><tr id="ddf884e0-1a65-4f8b-a352-1bffaf502e15"><th id="e@\Z" class="simple-table-header-color simple-table-header">PowerShell</th><td id="S[{@" class="" style="width:1027.98828125px">es el shell predeterminado en sistemas Windows. Está diseñado para la automatización avanzada y la administración del sistema.</td></tr><tr id="57e3a8a0-da6c-4a95-9c5f-8966376977e9"><th id="e@\Z" class="simple-table-header-color simple-table-header">Bourne Shell</th><td id="S[{@" class="" style="width:1027.98828125px">Una de los primeros shells desarrollados, sienta las bases para muchos otros. Aunque es bastante básico, su simplicidad puede ser útil para principiantes.</td></tr><tr id="816bb3f9-a4b7-4fb3-9025-94fd649be9c6"><th id="e@\Z" class="simple-table-header-color simple-table-header">C Shell</th><td id="S[{@" class="" style="width:1027.98828125px">se destaca por su sintaxis similar al lenguaje C. Aunque no es tan popular en la actualidad, algunos usuarios prefieren su estilo de interacción.</td></tr><tr id="8d25e1e5-e1f7-4507-956d-6d7e821c114c"><th id="e@\Z" class="simple-table-header-color simple-table-header">Korn Shell</th><td id="S[{@" class="" style="width:1027.98828125px">busca combinar las mejores características del Bourne Shell y el C Shell. Ofrece mejoras en la eficiencia de scripting y en la interacción del usuario.</td></tr><tr id="a87919fb-dacb-4456-9194-86f4b06da0dc"><th id="e@\Z" class="simple-table-header-color simple-table-header"><strong>Bash Shell</strong></th><td id="S[{@" class="" style="width:1027.98828125px">ampliamente utilizado en sistemas Linux. Destaca por su versatilidad y amplio conjunto de características. Su interfaz familiar y su amplia documentación lo convierten en una excelente opción para usuarios de todos los niveles.
+
+El Bash (Bourne Again Shell) es común en la mayoría de las distribuciones de Linux y generalmente es la shell predeterminada en muchas de ellas, incluyendo Ubuntu, Debian, Fedora y más. También está disponible en otros sistemas operativos y se puede instalar en macOS y Windows.
+
+incorpora características útiles del shell Korn (ksh) y el shell C (csh).</td></tr><tr id="ce53081a-625b-40d2-96bb-125153f60763"><th id="e@\Z" class="simple-table-header-color simple-table-header">Z Shell (Zsh)</th><td id="S[{@" class="" style="width:1027.98828125px">es una evolución del Bash Shell que ofrece características adicionales y una experiencia de usuario mejorada. Sus capacidades de autocompletado y personalización son especialmente apreciadas.
+
+Aunque es comúnmente asociado con macOS debido a su potencia y características, el Zsh no es la shell predeterminada en macOS, que utiliza Bash de forma predeterminada. Sin embargo, los usuarios avanzados a menudo optan por instalar Zsh por sus características adicionales. También está disponible para Linux y otros sistemas Unix.</td></tr><tr id="8e2e3661-91be-498b-89ad-3db551773206"><th id="e@\Z" class="simple-table-header-color simple-table-header">Fish Shell</th><td id="S[{@" class="" style="width:1027.98828125px">se centra en la facilidad de uso y la autocomprensión. Sus sugerencias contextuales y su diseño intuitivo son ideales para nuevos usuarios. 
+
+Su diseño intuitivo y sugerencias contextuales son beneficiosas para los profesionales que desean un entorno de trabajo más amigable. Fish facilita la exploración de datos y la realización de análisis complejos al reducir la carga cognitiva.</td></tr><tr id="ae068bb6-6d22-40bc-b803-e6c0c1d3900c"><th id="e@\Z" class="simple-table-header-color simple-table-header"><strong>Ash Shell</strong></th><td id="S[{@" class="" style="width:1027.98828125px">Esta es otra shell minimalista que a menudo se utiliza en sistemas Unix y Linux en entornos con recursos limitados, como sistemas empotrados o dispositivos de bajo consumo.</td></tr><tr id="67c97e88-01f8-432d-b704-35650c3f6166"><th id="e@\Z" class="simple-table-header-color simple-table-header"><strong>Dash Shell</strong></th><td id="S[{@" class="" style="width:1027.98828125px">Esta es una shell minimalista y rápida que a menudo se utiliza en sistemas Unix y Linux para tareas internas y de arranque. En algunos sistemas Linux, como Ubuntu, Dash se utiliza como el intérprete predeterminado para scripts de inicio.</td></tr><tr id="9dd7c656-edb7-46e6-b725-3695c64ca8f6"><th id="e@\Z" class="simple-table-header-color simple-table-header"><strong>Oil Shell</strong></th><td id="S[{@" class="" style="width:1027.98828125px">Se trata de un proyecto en desarrollo que tiene como objetivo crear una shell compatible con Bash pero con mejoras de diseño y rendimiento. Su objetivo es ser compatible con scripts de Bash existentes mientras ofrece una sintaxis más predecible y una mayor velocidad.</td></tr><tr id="620a7655-8137-4fe4-9c2f-c038ef307f3c"><th id="e@\Z" class="simple-table-header-color simple-table-header"><strong>Elvish</strong></th><td id="S[{@" class="" style="width:1027.98828125px">Es una shell moderna y extensible que se centra en la interactividad y la programabilidad. Ofrece características únicas como el autocompletado por tipo de valor y la manipulación directa de datos estructurados.</td></tr><tr id="265196ad-4a6b-41eb-8c31-90fcfd8ebb71"><th id="e@\Z" class="simple-table-header-color simple-table-header"><strong>Nu Shell</strong></th><td id="S[{@" class="" style="width:1027.98828125px">Se trata de una shell orientada a objetos y basada en texto que busca simplificar la manipulación y visualización de datos. Ofrece una sintaxis más legible y accesible para el manejo de archivos y comandos.</td></tr><tr id="40d0d5d4-687b-4533-960b-c19999a6de8b"><th id="e@\Z" class="simple-table-header-color simple-table-header"><strong>Xonsh</strong></th><td id="S[{@" class="" style="width:1027.98828125px">Una shell que combina características de Python con la interactividad de las shells tradicionales. Permite escribir comandos en Python mientras mantiene la capacidad de ejecutar comandos del sistema.</td></tr></tbody></table><p id="af730156-0bc1-4833-b3b4-fc722fcba8e0" class=""><strong>Capítulo 2: Sistema de Archivos de un Sistema Linux</strong></p><p id="06594b21-f14e-4cbf-befa-286f0517eb72" class="">En este capítulo, exploraremos el sistema de archivos de un sistema Linux y cómo se estructura, con el fin de proporcionarte una comprensión sólida del entorno en el que operarás a través de la terminal.</p><h1 id="55f7e9fb-da83-4d99-b787-3bb3ab8d89f0" class=""><strong>Estructura del Sistema de Archivos en Linux</strong></h1><p id="6e89ce29-d040-4fb9-b5bf-bf2897163c02" class="">El sistema de archivos de Linux se organiza jerárquicamente en forma de un árbol. Cada &quot;directorio&quot; (no se utiliza el término &quot;carpeta&quot; en Linux) contiene archivos y subdirectorios. </p><p id="ca270a96-e3a3-4dd4-98cd-34a624b348cb" class=""><strong>A continuación se presentan algunos de los directorios más importantes:</strong></p><pre id="e1bf5575-c3e9-49de-a63b-de0089c18201" class="code code-wrap"><code>- / (Raíz del Sistema de Archivos): Contiene todos los demás directorios
+	- /var Contiene datos variables, como registros, cachés y archivos temporales.
+	- /usr Aquí se almacenan los programas y archivos del sistema.
+		- /lib Bibliotecas compartidas utilizadas por programas en /usr.
+	- /dev Contiene archivos que representan dispositivos físicos y virtuales.
+	- /etc Archivos de configuración del sistema.
+	- /home Los directorios de los usuarios, se almacenan archivos personales.
+		- /username El directorio personal de cada usuario.</code></pre><p id="cbbed3e5-6368-480c-a91b-c0ab4f0d2006" class="">
+Ejemplo: A continuación muestro el árbol de sistemas de archivos de mi sistema operativo</p><pre id="c77a0cbd-ddc3-49d1-87be-9a74cc434fd8" class="code code-wrap"><code>(base) santiago@santiago-MS-7640:/$ tree -L 1
+.
+├── bin
+├── boot
+├── cdrom
+├── dev
+├── etc
+├── home
+		└── santiago
+		    ├── Descargas
+		    ├── Documentos
+		    ├── Escritorio
+		    ├── GitHub
+		    ├── Imágenes
+		    ├── Música
+		    ├── octave
+		    ├── Plantillas
+		    ├── Programas
+		    ├── Público
+		    ├── R
+		    ├── snap
+		    ├── Vídeos
+		    └── VirtualBox VMs
+├── lib
+├── lib32
+├── lib64
+├── libx32
+├── lost+found
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin
+├── snap
+├── srv
+├── swapfile
+├── sys
+├── tmp
+├── usr
+└── var</code></pre><p id="cc025cdf-836d-4282-9b30-a07498cc6656" class="">
+Se recomienda ver el siguiente video para complementar la información anteriormente mostrada.</p><figure id="14440cdb-14a9-4e65-9714-ed7da3046f33"><div class="source"><a href="https://youtu.be/TEZ26QWo9Yk">https://youtu.be/TEZ26QWo9Yk</a></div></figure><hr id="c9bd808f-8d02-47ab-bb08-f957bb217437"/><h1 id="437dab4d-6aec-4d05-a42e-e96aaa1f86c8" class=""><strong>Estructura por Defecto del Shell Bash</strong></h1><p id="5a4a486b-5a33-4ba2-924e-e4fd0af59b8b" class="">Cuando abres la terminal, verás una línea que muestra información sobre tu sesión actual. La estructura típica de la línea de comandos de Bash es la siguiente:</p><pre id="a89c94cf-8524-4b9a-8b0d-55c4c119a46e" class="code code-wrap"><code>username@hostname:current_directory$</code></pre><p id="82439381-cc71-4d62-b0bc-b8a8063043ac" class="">Cuando se está trabajando en un entorno virtual, la anatomía es la siguiente:</p><pre id="e5b37f29-304c-4344-b217-8ad24b955694" class="code code-wrap"><code>(evnname) username@hostname:current_directory$</code></pre><p id="d41089be-129d-4164-be5d-3a0738142db8" class="">Donde: </p><ul id="5ddf5bf6-830b-40f5-bc1c-ec4612452efc" class="bulleted-list"><li style="list-style-type:disc"><strong><mark class="highlight-purple">(evnname)</mark></strong><mark class="highlight-default">: Nombre del entorno virtual que se está ejecutando</mark></li></ul><ul id="67f94c13-de6f-469c-8489-883db1b6974c" class="bulleted-list"><li style="list-style-type:disc"><strong><mark class="highlight-teal">username</mark></strong>: Tu nombre de usuario.</li></ul><ul id="5ec7be6c-9dda-4ca6-b6c9-ecb3e0f5d365" class="bulleted-list"><li style="list-style-type:disc"><strong><mark class="highlight-teal">hostname</mark></strong>: El nombre de la máquina.</li></ul><ul id="ad3aa439-dded-4614-8c6c-8dd2b0942a55" class="bulleted-list"><li style="list-style-type:disc"><strong><mark class="highlight-blue">current_directory</mark></strong>: El directorio actual en el que te encuentras.</li></ul><ul id="22c8b4bb-f0cf-492a-8f1a-6b92cdc45811" class="bulleted-list"><li style="list-style-type:disc"><strong>$</strong>: <em>prompt</em> (indicador de comandos), indica que el sistema está listo para recibir un comando por parte del usuario. A continuación del <em>prompt</em> es donde puedes escribir tus comandos y consultas.</li></ul><hr id="48336251-ca28-4b0b-b21f-4537044539b8"/><h1 id="151f959d-3042-41b1-834a-ecb364d8b5c3" class=""><strong>Comandos Básicos de Bash</strong></h1><p id="681289d0-2952-4ff9-a230-7ff15724162f" class="">
+</p><figure id="0b1842c5-2367-4b0c-8268-24e7854caef1" class="image"><a href="Terminal%20Linux%20a6fcf90bbcf24119a3a8836c9a56f032/Untitled.png"><img style="width:336px" src="Terminal%20Linux%20a6fcf90bbcf24119a3a8836c9a56f032/Untitled.png"/></a></figure><p id="544b3c95-37b2-417e-bd91-558348a904f4" class="">
+</p><p id="fed93e60-445a-4450-ad62-c52fb74b69cc" class="">A continuación, te presentamos algunos de los comandos básicos más útiles en Bash que te permitirán navegar y trabajar eficazmente en el sistema de archivos:</p><ul id="7babc4a9-a855-4df8-a2d5-9eabc06d3d6c" class="bulleted-list"><li style="list-style-type:disc"><strong>ls</strong>: Lista los archivos y directorios en la ubicación actual.</li></ul><ul id="9b81100c-8640-43f8-839a-6b1e75355eef" class="bulleted-list"><li style="list-style-type:disc"><strong>cd</strong>: Cambia de directorio.</li></ul><ul id="f2b3219f-87d5-49c3-a88b-fd7fb61b8e32" class="bulleted-list"><li style="list-style-type:disc"><strong>clear</strong>: Limpia la terminal.</li></ul><ul id="d870dd50-64a6-4980-ae36-bde6b900e81b" class="bulleted-list"><li style="list-style-type:disc"><strong>ctrl + L</strong>: También limpia la terminal.</li></ul><ul id="fa723d02-b109-4a93-a860-9e0db9c254d4" class="bulleted-list"><li style="list-style-type:disc"><strong>ls -l</strong>: Muestra una lista detallada de archivos y directorios.</li></ul><ul id="4ba42288-4fb0-4718-9ad7-05dd070ba7f0" class="bulleted-list"><li style="list-style-type:disc"><strong>ls -lh</strong>: Muestra una lista detallada con tamaños legibles por humanos.</li></ul><ul id="e3f8ffac-1cda-40a2-8561-362fcd80fe2e" class="bulleted-list"><li style="list-style-type:disc"><strong>pwd</strong>: Muestra la ruta completa del directorio actual.</li></ul><ul id="47b96deb-21a4-4fd4-9aec-31ebbeb35cca" class="bulleted-list"><li style="list-style-type:disc"><strong>.</strong>: Se refiere al directorio actual.</li></ul><ul id="a24adeef-d492-4242-9be1-481e666a4324" class="bulleted-list"><li style="list-style-type:disc"><strong>..</strong>: Se refiere al directorio padre.</li></ul><ul id="43090081-6430-453c-8409-50f70d8e43d5" class="bulleted-list"><li style="list-style-type:disc"><strong>file</strong>: Describe el tipo de archivo.</li></ul></div></article></body></html>

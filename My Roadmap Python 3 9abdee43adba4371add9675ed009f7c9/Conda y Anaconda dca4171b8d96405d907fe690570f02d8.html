@@ -1,0 +1,696 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Conda y Anaconda</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="dca4171b-8d96-405d-907f-e690570f02d8" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1568068827266-aa5fae4c472d?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://cdn-icons-png.flaticon.com/128/7194/7194494.png"/></div><h1 class="page-title">Conda y Anaconda</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><p id="49eed614-3fa5-468d-b060-f16dd6f26fe8" class="block-color-teal_background"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Hoja de trucos</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="2ad72450-6a46-415e-b9d0-31201e932a9b"><a href="https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html" class="block-color-teal_background bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Cheat sheet — conda 23.7.3.dev29 documentation</div><div class="bookmark-description">See the conda cheatsheet PDF
+(1 MB) for a single-page summary of the most important
+information about using conda (link always points to the latest version).</div></div><div class="bookmark-href"><img src="https://docs.conda.io/projects/conda/en/latest/_static/conda-logo.png" class="icon bookmark-icon"/>https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html</div></div></a></figure><hr id="3523bc0a-1b83-4c51-be9f-1e0d3dcd9a97"/><p id="edcf544b-48a6-4ff2-95f1-f8921d6494e7" class="">
+</p><nav id="f570bc80-ddd1-40dc-aad9-457b88f6cbbe" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e52bc6b2-3f54-4f33-989a-8298c403c98f">1. Descargar Anaconda</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#06831b3a-4efc-4a60-bb60-75e264a7ce3b">2. Instalar Anaconda</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7096d0f0-f875-4f8a-8662-9d799f3a6a1b">3. Uso de Conda con Anaconda</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#02bea959-f02a-4f36-a419-623ea3043e19"><strong>1. Introducción a Conda y Anaconda</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a872625b-26ea-4965-ad58-b3059f1fb92c"><strong>2. Comandos Básicos de Conda</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8588bdec-d08e-4ede-9ee7-7d955c73e04e"><strong>3. Jupyter Notebook y Jupyter Lab</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#507972ef-1d3a-4be9-9f1c-840b237fe0fb"><strong>4. Jupyter y VSCode</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#deb11f4a-7099-49da-a549-de832cd7ef54">4. <strong>Guía de Uso de Entornos Virtuales con Conda</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#272e578e-635b-4d0b-9a8a-5845219cd415">1<strong>. El Entorno Base</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#52465c57-5401-43fb-9e11-d621278b9901">2.<strong> Listar Entornos Virtuales</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9bf85c23-dbec-4455-8270-9e8b907cbfaa">3<strong>. Crear un Entorno Virtual</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#44abab42-4c15-4b1f-9eb3-e8a859e5d953">Recom<strong>endaciones para Nombrar Entornos Virtuales</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#735666b6-5825-452c-bfb3-47c0483f9141">4<strong>. Activar y Desactivar Entornos</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#abaef5fe-6523-4f8f-b288-322db4898866">5<strong>. Ver y Gestionar Paquetes en un Entorno</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0bd5aa80-2e8c-4927-8d02-0157925ebd7c"><strong>7. Cambiar el Nombre de un Entorno Virtual</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d7fbda05-cbbc-4874-b076-7b5f523ca129">8. Desinstalar un paquete con Conda</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ed106a63-3bbb-454a-a4ad-a68b1b5dd778">9. Eliminar un ambiente virtual con Conda</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c54bb2fe-cfcf-49c6-88d3-b97946a73290">5. Comandos Avanzados de Conda</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#56971edf-ca65-4827-9eb7-176d0992b15f">1. Instalación de paquetes</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#187834c4-fcc2-4cc0-a5ae-cfbe6c47cb79">2. Revisión y restauración de ambientes</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#6ff89bc0-4bda-485d-9ea9-200124b7dc11">3. Exportación e importación de ambientes</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b7aaccbf-d334-4cf0-a470-b8ccad26abd9"><strong>6. Usando Mamba</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#0d40faaf-f8f9-4931-b34f-f6b9aac2d20c"><strong>7. Buenas Prácticas con Ambientes Virtuales</strong></a></div></nav><p id="16278d28-7b61-4b29-9a08-5653f43856c6" class="">
+</p><hr id="3a5aec76-bb2a-4e72-b58a-e9eed30a7d67"/><h1 id="e52bc6b2-3f54-4f33-989a-8298c403c98f" class="">1. Descargar Anaconda</h1><p id="b63b4d40-f390-472b-a21f-576e21d5471f" class="">Primero tendremos que instalar la herramienta <strong><strong><strong><strong>wget</strong></strong></strong></strong> en Linux para descargar Anaconda desde Internet.</p><p id="49c8bc29-7af8-4c33-8245-ff1ce77750c1" class=""><code><strong>wget</strong></code> es una herramienta simple y poderosa que permite descargar archivos desde la web. Si no lo tienes instalado, puedes hacerlo con:</p><pre id="bba362f7-0854-4f36-b137-6fa6058a1a0a" class="code code-wrap"><code>sudo apt-get install wget</code></pre><pre id="6e23a6f7-645d-436c-a477-5d1d1f56940e" class="code code-wrap"><code>wget -O anaconda.sh [URL_de_descarga]</code></pre><p id="522f1b80-1620-4cd2-a216-f7178e93e155" class="">Por ejemplo:</p><pre id="2aff75d9-9b17-4f26-9523-ef5e8f537ac9" class="code code-wrap"><code>wget -O anaconda.sh https://repo.anaconda.com/archive/Anaconda3-2023.07-2-Linux-x86_64.sh</code></pre><p id="b911ce72-7948-414e-b95c-e8aa9c63285b" class="">Como alternativa a <code><strong><strong><strong><strong>wget</strong></strong></strong></strong></code> también se puede usar <code><strong>curl</strong></code><strong> </strong>o <code><strong>aria2</strong></code><strong> </strong>en sistemas Linux.</p><h1 id="06831b3a-4efc-4a60-bb60-75e264a7ce3b" class="">2. Instalar Anaconda</h1><pre id="176e2925-2a31-449d-93e2-075ef216ae1a" class="code"><code>bash anaconda.sh</code></pre><p id="7fbe824d-c073-45e9-92d0-722cb0f32158" class="">Al terminar la instalación de Anaconda, reiniciar la terminal para que los cambios surjan efecto. </p><h1 id="7096d0f0-f875-4f8a-8662-9d799f3a6a1b" class="">3. Uso de Conda con Anaconda</h1><blockquote id="2a33bd6b-e7d1-452f-b31c-273fcdba3e99" class=""><strong>Introducción a los Entornos Virtuales: </strong>Un entorno virtual es un espacio aislado donde puedes instalar paquetes sin afectar otros proyectos o el sistema en general. Esto es especialmente útil para gestionar dependencias y asegurarte de que tu proyecto funcione consistentemente en diferentes máquinas.</blockquote><h3 id="02bea959-f02a-4f36-a419-623ea3043e19" class=""><strong>1. Introducción a Conda y Anaconda</strong></h3><ul id="5004f708-abf3-415c-85e6-b11a312f101d" class="bulleted-list"><li style="list-style-type:disc"><strong>Conda</strong>: Es un sistema de gestión de paquetes y un gestor de entornos virtuales. Permite instalar múltiples versiones de paquetes y software sin que estos entren en conflicto entre sí.</li></ul><ul id="c86cc0aa-16e3-4367-a8f0-8ba77b8a9569" class="bulleted-list"><li style="list-style-type:disc"><strong>Anaconda</strong>: Es una distribución de Python y R que incluye una gran cantidad de paquetes científicos y de análisis de datos. Básicamente, es un conjunto preempaquetado que incluye <code><strong>conda</strong></code>, Python, y muchos paquetes útiles para la ciencia de datos.</li></ul><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="93dd2472-96cd-4b7e-b1b4-24f47eeec320"><div style="font-size:1.5em"><span class="icon">⚠️</span></div><div style="width:100%"><strong>Diferencia entre </strong><code><strong>pipenv</strong></code><strong> y </strong><code><strong>conda</strong></code><ul id="595617a7-4c10-4679-9ed1-aa5105b4649f" class="bulleted-list"><li style="list-style-type:disc"><strong>pipenv</strong>: Es una herramienta de gestión de dependencias y entornos virtuales para Python. Se basa en <code><strong>pip</strong></code> y <code><strong>virtualenv</strong></code>. Es específico para proyectos Python y se utiliza principalmente para gestionar las dependencias de un proyecto y asegurar que todas las dependencias estén en la versión correcta.</li></ul><ul id="b40c8562-e291-427a-bacd-64076e96f609" class="bulleted-list"><li style="list-style-type:disc"><strong>conda</strong>: Es un gestor de paquetes y entornos virtuales que no se limita solo a Python. Puede manejar paquetes de múltiples lenguajes y es especialmente útil cuando se trabaja con paquetes que tienen dependencias complicadas, como bibliotecas científicas que requieren enlaces a lenguajes como C o Fortran.</li></ul><p id="4854feab-0bd7-4caf-8a36-5ac75fce9f94" class=""><strong>¿Cuál usar?</strong> Depende de tus necesidades:</p><ul id="ea4f7c88-a63b-4955-b949-28ee0d1a7a74" class="bulleted-list"><li style="list-style-type:disc">Si estás trabajando en un proyecto Python puro y quieres una herramienta que gestione dependencias y entornos virtuales, <code><strong>pipenv</strong></code> es una excelente opción.</li></ul><ul id="37414384-7b1a-4a90-8d04-425eda2c22a1" class="bulleted-list"><li style="list-style-type:disc">Si estás trabajando con proyectos que involucran múltiples lenguajes o con paquetes científicos que tienen dependencias complicadas, <code><strong>conda</strong></code> es probablemente la mejor opción.</li></ul></div></figure><h3 id="a872625b-26ea-4965-ad58-b3059f1fb92c" class=""><strong>2. Comandos Básicos de Conda</strong></h3><ul id="eabb2ab3-56af-462b-a2c4-430e09fa3a48" class="bulleted-list"><li style="list-style-type:disc"><strong>Ver información del ambiente Conda</strong>: Este comando te mostrará detalles sobre tu instalación de conda, la versión, los entornos que tienes creados, etc. Sirve para verificar si conda esta instalado y ver la versión instalada.<pre id="f8b794e2-1359-42a2-948b-053c86117a02" class="code code-wrap"><code>conda info</code></pre></li></ul><h3 id="8588bdec-d08e-4ede-9ee7-7d955c73e04e" class=""><strong>3. Jupyter Notebook y Jupyter Lab</strong></h3><ul id="41990d05-b318-4c4c-b5f1-58d68493446b" class="bulleted-list"><li style="list-style-type:disc"><strong>Jupyter Notebook</strong>: Es una aplicación web que permite crear y compartir documentos que contienen código en vivo, ecuaciones, visualizaciones y texto narrativo. Es ampliamente utilizado en análisis de datos, ciencia de datos, investigación científica, entre otros.<p id="b6e61fde-3b99-4f68-9196-8a23815c6364" class="">Para abrir un Jupyter Notebook, simplemente escribe:</p><pre id="1946d792-717b-4298-889c-8d0a134cd199" class="code code-wrap"><code>jupyter-notebook</code></pre></li></ul><ul id="b2518906-d417-4c9e-b0e8-63a5177993f6" class="bulleted-list"><li style="list-style-type:disc"><strong>Jupyter Lab</strong>: Es una interfaz de usuario web de próxima generación para el Proyecto Jupyter. Ofrece todas las funcionalidades de Jupyter Notebook (notebook, terminal, editor de texto, explorador de archivos, etc.) pero con una interfaz más moderna y extensible. Puedes pensar en Jupyter Lab como una evolución o un &quot;IDE&quot; para Jupyter.<p id="0ef22a10-9cd4-489e-9bd9-eb9fa60fd23d" class="">Para abrir Jupyter Lab, escribe:</p><pre id="3e3fb8ed-78cd-43db-9478-237717ea7ac7" class="code code-wrap"><code>jupyter lab</code></pre><p id="983532e2-5979-400b-bd55-a7e57898b916" class="">
+</p></li></ul><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="bd03b0b4-f20f-474d-accb-3ad7b867323c"><div style="font-size:1.5em"><span class="icon">🐍</span></div><div style="width:100%"><strong>Diferencia entre Jupyter Notebook y Jupyter Lab</strong><ul id="e12c3545-4ba8-45a3-8918-5bb393abe8b6" class="bulleted-list"><li style="list-style-type:disc"><strong>Interfaz</strong>: Jupyter Lab tiene una interfaz más moderna y es más extensible que Jupyter Notebook.</li></ul><ul id="f248e779-f7f9-48f6-b45d-a3cfb81be21b" class="bulleted-list"><li style="list-style-type:disc"><strong>Funcionalidades</strong>: Jupyter Lab es como un entorno de desarrollo integrado (IDE) para Jupyter. Puedes tener múltiples notebooks abiertos en pestañas, editar archivos de texto, visualizar imágenes, entre otras cosas, todo en una misma ventana.</li></ul><ul id="476ed6ca-5a09-4d9e-865d-0be2061293a0" class="bulleted-list"><li style="list-style-type:disc"><strong>Extensibilidad</strong>: Jupyter Lab es más fácil de extender con complementos y tiene un sistema de extensiones más robusto.</li></ul><ul id="33b90107-71a0-4c70-b64c-90cf48467c77" class="bulleted-list"><li style="list-style-type:disc"><strong>Adopción</strong>: Aunque Jupyter Notebook todavía es ampliamente utilizado, Jupyter Lab está ganando terreno rápidamente debido a sus características avanzadas.</li></ul></div></figure><h3 id="507972ef-1d3a-4be9-9f1c-840b237fe0fb" class=""><strong>4. Jupyter y VSCode</strong></h3><p id="a58c3056-484a-4d42-845f-ea31fba41aef" class="">VSCode (Visual Studio Code) es un editor de código fuente desarrollado por Microsoft. Con las extensiones adecuadas, puedes usar Jupyter directamente dentro de VSCode.</p><ul id="1d429f20-4dee-440a-940b-ada866a3622e" class="bulleted-list"><li style="list-style-type:disc">Para trabajar con Jupyter en VSCode, necesitas tener instalado <code><strong>jupyter</strong></code>. No es estrictamente necesario tener todo Anaconda, pero Anaconda facilita la gestión de paquetes y entornos.</li></ul><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="6c11db24-2657-40eb-aaf2-d7545487aad9"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Si solo tienes Python y VSCode (y no Anaconda), puedes instalar Jupyter usando <code><strong>pip</strong></code>:<pre id="85666ec4-eeff-4548-8a36-7c5997659710" class="code code-wrap"><code>pip install jupyter</code></pre></div></figure><ul id="8408c76b-794d-4d6e-b9a3-695b91cc1f88" class="bulleted-list"><li style="list-style-type:disc">Una vez instalado, y con la extensión de Jupyter en VSCode, puedes crear y abrir notebooks directamente desde el editor.</li></ul><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="e52b67ec-1847-4ab0-b680-97da9cee847c"><div style="font-size:1.5em"><span class="icon">➡️</span></div><div style="width:100%"><strong>Guía para Abrir Notebooks en VSCode con Ambientes de Conda</strong><p id="1ed80902-d21f-4b8c-b1a3-eee1acae8aa6" class="">Si ya tiene instalado Anaconda y creado un ambiente virtual con conda, también se puede VSCode para abrir notebooks Jupyter.</p><ol type="1" id="163f7778-f351-428d-aa34-33fc6d9ced07" class="numbered-list" start="1"><li><strong>Pasos para abrir Notebooks en VSCode</strong>:<p id="cb9a47f5-9e92-4abc-8939-3a522f074dd1" class="">a. <strong>Iniciar Visual Studio Code</strong>:</p><ul id="228c6a65-b150-4250-abd9-a21b5bc0d8da" class="bulleted-list"><li style="list-style-type:disc">Ejecuta el comando <code><strong>code .</strong></code> en tu terminal para abrir VSCode.</li></ul><p id="c8cb0f67-53b2-4e3f-828f-f5384c50f435" class="">b. <strong>Abrir o Crear Notebook</strong>:</p><ul id="beb5a158-baa0-485f-88bb-53e29f8abe11" class="bulleted-list"><li style="list-style-type:disc">Abre la notebook que creaste anteriormente o crea una nueva con el nombre <code><strong>Untitled.ipynb</strong></code>.</li></ul><p id="5dc21da5-6ced-481f-9fe9-938e54598308" class="">c. <strong>Verificar Extensión de Python</strong>:</p><ul id="0a422777-d0ae-45c3-9724-22c91d6d06af" class="bulleted-list"><li style="list-style-type:disc">Asegúrate de tener la extensión de Python instalada en VSCode.</li></ul><p id="82a4523a-6199-41fc-aa81-a928c4acbb08" class="">d. <strong>Seleccionar Kernel</strong>:</p><ul id="be45920e-34ed-46e3-aa31-9a18c68b69bd" class="bulleted-list"><li style="list-style-type:disc">En la esquina superior derecha de tu notebook, encontrarás un botón que podría decir &quot;Select Kernel&quot;, &quot;Not Started&quot; o mostrar un Kernel ya seleccionado. Haz clic en él.</li></ul><ul id="869add25-e5ea-4557-9b22-0148fe308d93" class="bulleted-list"><li style="list-style-type:disc">Se mostrará una lista con todos los Kernels/ambientes instalados en tu computadora. Elige el ambiente que desees usar. Por ejemplo, puedes seleccionar el ambiente <code><strong>py39</strong></code> que se creó en clases anteriores.</li></ul><ul id="47beb3fd-d266-4777-87b2-1d87e443a949" class="bulleted-list"><li style="list-style-type:disc">Una vez seleccionado, el nombre del ambiente aparecerá en el botón en la esquina superior derecha.</li></ul></li></ol><ol type="1" id="28ba4eed-75f6-448f-967f-3fc1b07057d6" class="numbered-list" start="2"><li><strong>Solución de Problemas</strong>:<p id="5e64fc34-c487-49d2-a707-12680d3d1708" class="">a. <strong>Ambientes de Conda no mostrados</strong>:</p><ul id="1b7ae2a4-cb62-4dd0-a358-a52fbf220205" class="bulleted-list"><li style="list-style-type:disc">Asegúrate de tener instalada la extensión de Python en VSCode.</li></ul><ul id="47ed47ff-c31a-43e3-8194-3d2b7a458c8b" class="bulleted-list"><li style="list-style-type:disc">Si el problema persiste, recarga tu ventana de VSCode con <code><strong>Ctrl + R</strong></code> o <code><strong>Command + R</strong></code>.</li></ul><p id="b3dc8eaa-3ed9-4dea-b788-23bbfc4bc781" class="">b. <strong>Si el comando </strong><code><strong>code .</strong></code><strong> no funciona</strong>:<div class="indented"><ul id="921cfad6-2c7f-438f-a4a7-c2babb2166ba" class="bulleted-list"><li style="list-style-type:disc">Abre Visual Studio Code de manera regular.</li></ul><ul id="7c66a837-c15b-4411-b886-55653b0b5655" class="bulleted-list"><li style="list-style-type:disc">Usa el atajo <code>ctrl + shift + p</code>.</li></ul><ul id="8af63cd4-34d7-4777-b426-e07715b8cda1" class="bulleted-list"><li style="list-style-type:disc">Escribe “Shell Command” en la barra que aparece.</li></ul><ul id="788f2c00-6588-4c08-bdd7-770c1e2747c9" class="bulleted-list"><li style="list-style-type:disc">Selecciona “Shell Command: Install “code” command in shell PATH”.</li></ul><ul id="fd8ca79a-f4f4-4f06-ae39-ccd5a8d8d6cb" class="bulleted-list"><li style="list-style-type:disc">Reinicia tu computadora.</li></ul></div></p><p id="0276c2b3-4827-498f-90cd-a636a12ba0ea" class="">c. <strong>Si tienes problemas ejecutando Jupyter Notebooks en nuevos ambientes virtuales</strong>:<div class="indented"><ul id="1246901e-1bd5-4e23-bb94-15e0f2399abd" class="bulleted-list"><li style="list-style-type:disc">Es probable que no hayas instalado el paquete necesario. Ejecuta el siguiente comando:<pre id="e35d294e-5354-4c53-80a2-871f1cf87521" class="code code-wrap"><code>conda install ipykernel</code></pre></li></ul></div></p></li></ol></div></figure><h1 id="deb11f4a-7099-49da-a549-de832cd7ef54" class="">4. <strong>Guía de Uso de Entornos Virtuales con Conda</strong></h1><h3 id="272e578e-635b-4d0b-9a8a-5845219cd415" class="">1<strong>. El Entorno Base</strong></h3><p id="71118450-9f33-48b9-b189-ba3d577f1a31" class="">Al instalar Anaconda, automáticamente se crea un entorno llamado <code><strong>base</strong></code>. Este entorno se activará por defecto cada vez que abras una terminal, indicado por <code><strong>(base)</strong></code> al inicio de la línea de comandos.</p><h3 id="52465c57-5401-43fb-9e11-d621278b9901" class="">2.<strong> Listar Entornos Virtuales</strong></h3><p id="2ff3a8ac-1220-4ca4-99c8-cafdc89f3941" class="">Para ver todos los entornos que tienes instalados:</p><pre id="8ce0132f-2044-424f-99ba-682c33c0d06e" class="code code-wrap"><code>conda env list</code></pre><h3 id="9bf85c23-dbec-4455-8270-9e8b907cbfaa" class="">3<strong>. Crear un Entorno Virtual</strong></h3><p id="b4ad8486-88ef-4ee1-a038-4cd4e5bf105b" class="">
+</p><blockquote id="3f8e1c63-14a8-47df-b5be-ee72313b184e" class=""><strong>Sintaxis de Comandos:
+</strong>Cuando ves un <code><strong>-</strong></code> antes de un comando, generalmente es una versión abreviada del comando. Por otro lado, <code><strong>--</strong></code> generalmente precede a una palabra completa o a una opción más descriptiva.</blockquote><p id="d586e2b1-c96f-48a8-babf-f9321da57887" class="">
+</p><p id="80bbe8cf-df98-4ab1-aef2-2513625808b3" class="">Para crear un nuevo entorno virtual:</p><pre id="a59a8eba-fdbe-44e9-855e-f67b853b7e55" class="code code-wrap"><code>conda create --name py35 python=3.5 pandas</code></pre><p id="25681141-ee6d-40b5-8930-3b2c49025056" class="">o lo que sería lo mismo:</p><pre id="282ab8c8-347f-44e2-99c2-d0a78ab509fd" class="code code-wrap"><code>conda create -n py35 python=3.5 pandas</code></pre><p id="ba0b9765-3502-4103-aa51-eca884a211c9" class="">Esto creará un entorno llamado <code><strong>py35</strong></code> con Python 3.5 y la última versión de pandas.</p><p id="ca9dc191-773f-4a07-9932-8cdae9d1ae65" class="">
+</p><h3 id="44abab42-4c15-4b1f-9eb3-e8a859e5d953" class="block-color-gray_background">Recom<strong>endaciones para Nombrar Entornos Virtuales</strong></h3><table id="71937f85-818d-4e85-9ae4-ea7d0815cfb1" class="simple-table"><thead class="simple-table-header"><tr id="3d6a504b-c6c8-4b98-86e7-abc0f51aab1c"><th id="njhB" class="simple-table-header-color simple-table-header" style="width:173.4921875px"><strong>Recomendación</strong></th><th id="o&gt;wd" class="simple-table-header-color simple-table-header" style="width:261.48828125px"><strong>Descripción</strong></th><th id="nSgn" class="block-color-default simple-table-header" style="width:240.4921875px"><mark class="highlight-teal"><strong>Bien</strong></mark><strong> </strong>✅</th><th id="~D&lt;[" class="simple-table-header-color simple-table-header" style="width:371.4921875px"><mark class="highlight-red"><strong>Mal</strong></mark><strong> </strong>❌</th></tr></thead><tbody><tr id="b9216f8d-7779-41be-a854-1eb1d699375b"><th id="njhB" class="simple-table-header-color simple-table-header" style="width:173.4921875px"><strong>Descriptivo pero corto</strong></th><td id="o&gt;wd" class="" style="width:261.48828125px">El nombre debe dar una idea del propósito del entorno, pero también debe ser fácil de escribir y recordar.</td><td id="nSgn" class="block-color-default" style="width:240.4921875px"><code><strong>ml-nlp-project</strong></code></td><td id="~D&lt;[" class="" style="width:371.4921875px"><code><strong>project1</strong></code> o <code><strong>data-thing-that-does-stuff-with-text</strong></code></td></tr><tr id="5bf479a5-538d-4486-b9e8-485d11d8ce18"><th id="njhB" class="simple-table-header-color simple-table-header" style="width:173.4921875px"><strong>Evitar Nombres Demasiado Largos</strong></th><td id="o&gt;wd" class="" style="width:261.48828125px">Un nombre de entorno virtual no debería ser una oración. Si sientes la necesidad de usar muchas palabras, probablemente puedas ser más específico sobre el propósito del entorno.</td><td id="nSgn" class="block-color-default" style="width:240.4921875px"><code><strong>image_processing</strong></code></td><td id="~D&lt;[" class="" style="width:371.4921875px"><code><strong>project_for_processing_and_analyzing_images_from_cameras</strong></code></td></tr><tr id="8e224ce6-9d51-4a83-b2ee-4ad6ebab564c"><th id="njhB" class="simple-table-header-color simple-table-header" style="width:173.4921875px"><strong>Evitar espacios y caracteres especiales</strong></th><td id="o&gt;wd" class="" style="width:261.48828125px">Esto puede causar problemas en la terminal.</td><td id="nSgn" class="block-color-default" style="width:240.4921875px"><code><strong>ecommerce_site</strong></code></td><td id="~D&lt;[" class="" style="width:371.4921875px"><code><strong>e-commerce site!</strong></code></td></tr><tr id="cbd89e5c-1f4c-460b-8145-e9b04dd15ac7"><th id="njhB" class="simple-table-header-color simple-table-header" style="width:173.4921875px"><strong>Usar Guiones Bajos o Guiones</strong></th><td id="o&gt;wd" class="" style="width:261.48828125px">Estos son fáciles de escribir y leer en la terminal.</td><td id="nSgn" class="block-color-default" style="width:240.4921875px"><code><strong>data_cleaning</strong></code> o <code><strong>data-cleaning</strong></code></td><td id="~D&lt;[" class="" style="width:371.4921875px"><code><strong>datacleaning</strong></code></td></tr><tr id="fcc2f248-acdd-4d1c-a017-436d2db352df"><th id="njhB" class="simple-table-header-color simple-table-header" style="width:173.4921875px"><strong>Versiones</strong></th><td id="o&gt;wd" class="" style="width:261.48828125px">Si trabajas con diferentes versiones de Python o de un paquete específico, puedes incluir la versión en el nombre, como <code><strong>py35</strong></code> o <code><strong>django3</strong></code>.</td><td id="nSgn" class="block-color-default" style="width:240.4921875px"><code><strong>django3_project</strong></code> o <code><strong>py38_ml</strong></code></td><td id="~D&lt;[" class="" style="width:371.4921875px"><code><strong>project_with_new_python</strong></code></td></tr><tr id="b11bda8f-31f3-43a3-b18f-d04f4e8576a4"><th id="njhB" class="simple-table-header-color simple-table-header" style="width:173.4921875px"><strong>Incluir Tecnologías o Versiones Relevantes</strong></th><td id="o&gt;wd" class="" style="width:261.48828125px">Si el entorno está diseñado para un proyecto que utiliza una versión específica de Python o una biblioteca, considera incluirlo en el nombre.</td><td id="nSgn" class="block-color-default" style="width:240.4921875px"><code><strong>django3_project</strong></code> o <code><strong>py38_ml</strong></code></td><td id="~D&lt;[" class="" style="width:371.4921875px"><code><strong>project_with_new_python</strong></code></td></tr><tr id="af86a988-49ed-4cd6-b4ff-c0e97125c471"><th id="njhB" class="simple-table-header-color simple-table-header" style="width:173.4921875px"><strong>Evitar Nombres de Paquetes Existentes</strong></th><td id="o&gt;wd" class="" style="width:261.48828125px">No uses nombres que puedan confundirse con paquetes o bibliotecas populares. Esto puede causar confusión.</td><td id="nSgn" class="block-color-default" style="width:240.4921875px"> <code><strong>numpy_analysis</strong></code></td><td id="~D&lt;[" class="" style="width:371.4921875px"><code><strong>numpy</strong></code></td></tr><tr id="74e42327-cadf-4d7a-b044-c50a0a332a70"><th id="njhB" class="simple-table-header-color simple-table-header" style="width:173.4921875px"><strong>Evitar nombres genéricos o ambiguos</strong></th><td id="o&gt;wd" class="" style="width:261.48828125px">Nombres como &quot;test&quot; o &quot;project&quot; no son descriptivos y pueden ser confusos en el futuro.</td><td id="nSgn" class="block-color-default" style="width:240.4921875px"><code><strong>finance_dashboard</strong></code></td><td id="~D&lt;[" class="" style="width:371.4921875px"><code><strong>new_project</strong></code></td></tr><tr id="188afc93-24c3-4dd5-9f07-7c2c9a7f91ee"><th id="njhB" class="simple-table-header-color simple-table-header" style="width:173.4921875px"><strong>Evitar Acronimos Ambiguos</strong></th><td id="o&gt;wd" class="" style="width:261.48828125px">A menos que el acrónimo sea ampliamente reconocido en tu equipo o industria, es mejor evitarlo o combinarlo con palabras descriptivas.</td><td id="nSgn" class="block-color-default" style="width:240.4921875px"><code><strong>nlp_research</strong></code></td><td id="~D&lt;[" class="" style="width:371.4921875px"><code><strong>NLRP</strong></code></td></tr><tr id="96452636-094e-42f2-a8b9-71a282ca38bd"><th id="njhB" class="simple-table-header-color simple-table-header" style="width:173.4921875px"><strong>Consistencia</strong></th><td id="o&gt;wd" class="" style="width:261.48828125px">Si estás trabajando en varios proyectos relacionados o en diferentes partes de un proyecto más grande, mantén una convención de nomenclatura consistente.</td><td id="nSgn" class="block-color-default" style="width:240.4921875px"><code><strong>webapp_frontend</strong></code> y <code><strong>webapp_backend</strong></code></td><td id="~D&lt;[" class="" style="width:371.4921875px"><code><strong>webappFront</strong></code> y <code><strong>backend_for_webapp</strong></code></td></tr><tr id="55dd1899-c920-434a-a23c-0f6014989728"><th id="njhB" class="simple-table-header-color simple-table-header" style="width:173.4921875px"><strong>Contextualizar</strong></th><td id="o&gt;wd" class="" style="width:261.48828125px">Si el entorno es para un cliente, un curso o un evento específico, considera incluir ese contexto en el nombre.</td><td id="nSgn" class="block-color-default" style="width:240.4921875px"><code><strong>clientA_ml_project</strong></code> o <code><strong>springhackathon_project</strong></code></td><td id="~D&lt;[" class="" style="width:371.4921875px"><code><strong>ml_project</strong></code> o <code><strong>hackathon_project</strong></code></td></tr></tbody></table><p id="0fe0bd34-9a1a-4d31-afe0-ecfff80683e9" class=""><mark class="highlight-gray_background">En todo caso siempre será una buena práctica nombrar al entorno virtual con el mismo nombre del proyecto.</mark></p><hr id="04cd6660-88c9-45d9-a360-393f90d856cb"/><p id="44b92da0-0be9-4763-ac24-c2bf9e72f962" class="">
+</p><h3 id="735666b6-5825-452c-bfb3-47c0483f9141" class="">4<strong>. Activar y Desactivar Entornos</strong></h3><p id="940e9785-efef-4fae-a421-36181a6c5667" class="">Activar es el término que usa para referirse a usar un entorno virtual, entrar en el. Y deactivate para dejar de usar o salir de un entorno virtual.</p><p id="b664a120-62db-4e18-b712-8ea963144578" class="">Para activar un entorno:</p><pre id="b175ceb3-cf2a-4c77-8795-407d41c05135" class="code code-wrap"><code>conda activate py35</code></pre><p id="f723cb15-cce8-4265-9a05-eee295aaca00" class="">Para desactivar el entorno actual:</p><pre id="ef8d2de0-88ab-4acc-aadf-e6f9f6dcd089" class="code code-wrap"><code>conda deactivate</code></pre><h3 id="abaef5fe-6523-4f8f-b288-322db4898866" class="">5<strong>. Ver y Gestionar Paquetes en un Entorno</strong></h3><p id="921a01b8-ec1f-4212-a33e-d70b8d4bb994" class="">Para ver todos los paquetes en el entorno actual:</p><pre id="c60a7d5b-900d-46fa-b7a6-55fc6014f8a8" class="code code-wrap"><code>conda list</code></pre><p id="cffa23bb-78b5-4bf3-90a7-67002e93137a" class="">Para ver un paquete específico:</p><pre id="abce15c8-d3e9-4d6f-b33a-dd3420226942" class="code code-wrap"><code>conda list pandas</code></pre><p id="a9945d5b-73c4-4d2d-bcfa-7d42c25cf782" class="">Para actualizar un paquete a la versión más reciente:</p><pre id="c956bf6a-b0e3-4d74-976e-67180b60b35b" class="code code-wrap"><code>
+conda update pandas</code></pre><p id="c9547747-6ace-4279-a1c0-34f86b0300e9" class="">Para instalar o cambiar a una versión específica de un paquete:</p><pre id="fbb7da0c-443f-45c8-8efd-791e160bbf0d" class="code code-wrap"><code>conda install pandas=1.2</code></pre><h3 id="0bd5aa80-2e8c-4927-8d02-0157925ebd7c" class=""><strong>7. Cambiar el Nombre de un Entorno Virtual</strong></h3><p id="66279b82-fd88-49da-b53c-74de9efe0f1a" class="">No hay un comando directo para renombrar un entorno en conda. Sin embargo, puedes clonar un entorno con un nuevo nombre y luego eliminar el antiguo:</p><pre id="e6a94c31-c327-406d-9ccc-210a0ae2237a" class="code code-wrap"><code>conda create --name py38 --copy --clone py35
+conda remove --name py35 --all</code></pre><hr id="bbe307f5-a4d5-4b42-bf1d-fda6da841f67"/><h3 id="d7fbda05-cbbc-4874-b076-7b5f523ca129" class="">8. Desinstalar un paquete con Conda</h3><p id="1cc97034-ad22-499d-bab8-6efacd865d6e" class="">Para eliminar un paquete específico de tu ambiente Conda, utiliza el siguiente comando:</p><pre id="a29f5410-b7dd-4279-8f3f-01a43cdd9cc8" class="code code-wrap"><code>conda remove [nombre_del_paquete]</code></pre><p id="bfd6443b-93e8-4486-856e-4a65f87cc3bd" class=""><strong>Ejemplo</strong>:</p><p id="166c1469-f35a-4196-b8bf-491bf8bb2d72" class="">Si deseas desinstalar el paquete <code>pandas</code>, ejecuta:</p><pre id="76c39c2c-f2cc-497b-a9fb-4c1ed8044373" class="code code-wrap"><code>conda remove pandas</code></pre><p id="c7c5e59e-6fd6-49bd-a96c-1aebf600e8a8" class="">Para verificar que el paquete se ha desinstalado correctamente, puedes listar todos los paquetes y buscar el que acabas de eliminar:</p><pre id="8156db7d-1a4a-4acf-9d4d-f3270b12810e" class="code code-wrap"><code>conda list pandas</code></pre><p id="1f0eeb94-3563-4193-95d3-5ecaef7dc572" class="">Si <code>pandas</code> se ha desinstalado correctamente, este comando no debería mostrar ningún resultado.</p><hr id="d0c6a580-816f-4a74-b9dd-40ff962dcc01"/><h3 id="ed106a63-3bbb-454a-a4ad-a68b1b5dd778" class="">9. Eliminar un ambiente virtual con Conda</h3><p id="7b09ff38-5ac0-45a2-840d-d7fc226377b4" class="">Antes de eliminar un ambiente, es crucial asegurarse de que no estás usando ese ambiente en ese momento. Si estás trabajando dentro de un ambiente que deseas eliminar, primero debes desactivarlo.</p><p id="ce9e96f7-c452-4c49-90f1-9c6d346bcd9c" class="">Para desactivar un ambiente:</p><pre id="bf3ebb13-9858-4799-a229-00102f7629f1" class="code code-wrap"><code>conda deactivate</code></pre><p id="0d9b21a3-ebb8-4612-a0c5-b788a046d2bb" class="">Una vez desactivado el ambiente, puedes proceder a eliminarlo con el siguiente comando:</p><pre id="86928ba9-423c-46a5-a104-e046ca977762" class="code code-wrap"><code>conda env remove --name [nombre_del_ambiente]</code></pre><p id="fdbcc2b5-1703-473e-87d7-2c8bc18392f4" class=""><strong>Ejemplos</strong>:</p><p id="436762ac-9118-4b44-a5c0-052a541aca92" class="">Para eliminar un ambiente llamado <code>py35</code>, puedes usar cualquiera de las siguientes opciones:</p><pre id="32490efb-64d4-4c0e-97ca-ffbc34f6414f" class="code code-wrap"><code>conda env remove --name py35</code></pre><p id="c3eba964-0fcb-42a9-9a13-fb5479b34363" class="">o</p><pre id="559cf9b9-cbaf-4f2f-9ff0-31a2ab86d219" class="code code-wrap"><code>conda env remove -n py35</code></pre><p id="7f976cc0-14c4-4b1d-bc67-199528ebc43c" class="">Para verificar que el ambiente se ha eliminado correctamente, lista todos los ambientes disponibles:</p><pre id="9dda4fba-9a5c-4645-b7ad-0546b884ec7d" class="code code-wrap"><code>conda env list</code></pre><p id="b6fee5b5-f178-4fb2-a8d3-7de1b0bdddd1" class="">El ambiente <code>py35</code> no debería aparecer en la lista si se ha eliminado correctamente.</p><hr id="ae5cb117-1e44-4a33-a52b-725f78dc9395"/><p id="a7501398-63a4-42a6-991c-5fb6317da7d9" class=""><strong>Nota importante</strong>: Es esencial recordar que no debes estar usando un ambiente al momento de eliminarlo. Siempre desactiva el entorno virtual antes de intentar eliminarlo para evitar errores o problemas.</p><hr id="c85c6235-4267-45d3-b2cc-99b821bd33c7"/><h1 id="c54bb2fe-cfcf-49c6-88d3-b97946a73290" class="">5. Comandos Avanzados de Conda</h1><blockquote id="56d9d27e-b84e-4c75-a74e-223418f6d883" class="">Es una buena práctica no modificar el ambiente virtual <strong><strong><strong><strong>base</strong></strong></strong></strong></blockquote><h3 id="56971edf-ca65-4827-9eb7-176d0992b15f" class="">1. Instalación de paquetes</h3><p id="e1b96a62-9e53-4439-b91e-81105c4b0741" class="">Para instalar un paquete específico, puedes usar el comando:</p><pre id="59466c6c-b736-4b95-86cf-af77d080d1ff" class="code code-wrap"><code>conda install [nombre_del_paquete]</code></pre><p id="b331f6e9-fd42-439c-9586-35e6bb784ccc" class="">Si el paquete no está disponible en el canal principal de Conda, puedes especificar un canal diferente, también se puede buscar el paquete en <mark class="highlight-teal"><a href="http://anaconda.org">anaconda.org</a></mark><mark class="highlight-default">, y así saber qué canal se encuentra el paquete y posteriormente instalarlo de la siguiente manera:</mark></p><pre id="a649e065-7bdf-4e41-9750-6e7ca70d0ca4" class="code code-wrap"><code>conda install -c [nombre_del_canal] [nombre_del_paquete]</code></pre><p id="7176b154-037e-4263-bbc3-de88802fbc02" class=""><strong>Ejemplo</strong>:</p><p id="8929f180-a569-489d-b317-2aa93a4699e6" class="">Para instalar el paquete <code>boltons</code> desde el canal <code>conda-forge</code>:</p><pre id="4828f290-2f15-447d-bf84-19e68275cbd1" class="code code-wrap"><code>conda install -c conda-forge boltons</code></pre><figure class="block-color-blue callout" style="white-space:pre-wrap;display:flex" id="e274ebaf-ab65-44c1-87b3-214c4b74b6b5"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%"><strong>Instalación de paquetes de pip en Conda</strong>: Aunque Conda es un gestor de paquetes, también puede interactuar con pip. Si un paquete no está disponible en Conda, pero sí en pip, puedes instalarlo directamente desde Conda usando pip. Por ejemplo:<pre id="5440c8d6-46b3-4d87-b465-706103a9519c" class="code code-wrap"><code>pip install pybbn</code></pre></div></figure><hr id="57774885-8d72-4681-a175-bb6f056dad68"/><h3 id="187834c4-fcc2-4cc0-a5ae-cfbe6c47cb79" class="">2. Revisión y restauración de ambientes</h3><p id="f78f733b-a8cd-448c-800a-fa25d1596f85" class="">Conda mantiene un registro de todas las modificaciones realizadas en tu ambiente. Puedes ver este registro con:</p><pre id="7c8b4ac7-0d86-414e-8b8d-36f1151b3df2" class="code code-wrap"><code>conda list --revision</code></pre><p id="b74cefcf-1fd4-497a-8e7d-150bd38ad95a" class="">Para restaurar tu ambiente a una revisión específica:</p><pre id="136ba4d9-6775-44b3-a949-2866f9427f55" class="code code-wrap"><code>conda install --revision [número_de_revisión]</code></pre><hr id="7c622243-2c81-4829-a50c-6564e2ba8e5b"/><h3 id="6ff89bc0-4bda-485d-9ea9-200124b7dc11" class="">3. Exportación e importación de ambientes</h3><p id="cb7fbcc9-2a21-4913-9212-8a28b5f4121c" class="">Es posible exportar la configuración de tu ambiente para compartirlo o replicarlo en otra máquina, o para compartirlos con otras personas. Hay varias formas de hacerlo:</p><ul id="8cfb3f4b-909f-4644-9282-305466dda59e" class="bulleted-list"><li style="list-style-type:disc">El siguiente comando bash exporta una lista completa de todas las librerías e información de el ambiente virtual del ambiente virtual en el que nos encontramos</li></ul><pre id="8f098200-7c30-4b04-8f4b-367d6e538096" class="code code-wrap"><code>conda env export</code></pre><ul id="50cb105b-3ee7-4fd2-bc04-ca03926da56d" class="bulleted-list"><li style="list-style-type:disc">Un forma mas efectiva de hacer esto, es sólo exporta las versiones de todos los paquetes instalados, con el siguiente comando.</li></ul><pre id="f1d7a95f-5f1e-4643-ba67-a376a1113a18" class="code code-wrap"><code>conda env export --no-builds</code></pre><p id="02a7aa0b-a076-4ab0-9aad-ed98981bff03" class="">
+</p><p id="34079e61-b309-4185-8b58-7765db310812" class="block-color-yellow_background"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>La otra forma más recomendada de hacer esto es la siguiente:</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><ul id="13dc2d55-b193-4015-aa55-cb95cfba1e33" class="block-color-default bulleted-list"><li style="list-style-type:disc">Exportar solo con paquetes instalados manualmente:</li></ul><pre id="3fc7eb3a-3cb4-4457-bac5-0b8c06790f77" class="code code-wrap"><code>conda env export --from-history</code></pre><ul id="deef7816-91e1-4bb6-b594-86565cc36e29" class="block-color-default bulleted-list"><li style="list-style-type:disc">El siguiente paso es exportar esta información a un archivo específico:</li></ul><pre id="585254eb-a436-478d-91d7-bbae92ed4b63" class="code code-wrap"><code>conda env export --from-history --file nombre_archivo.yml</code></pre><blockquote id="f1d4bfbf-5004-4854-8690-d9d2eae3a805" class="block-color-brown_background">El nombre del archivo se puede llamar <code>environment</code> de manera general, o puede tener un nombre más específico.</blockquote><p id="847def08-c006-476b-b21b-c96b4248fbe8" class="">Y por último, si queremos volver a instalar este ambiente desde otra computadora debemos de importar el ambiente desde un archivo, de la siguiente manera:</p><pre id="e9f30b42-b600-4c45-8711-b40f94b9b6a1" class="code code-wrap"><code>conda env create --file nombre_archivo.yml</code></pre><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="7be1dc79-485a-4381-b549-444bb540ac56"><div style="font-size:1.5em"><span class="icon">📎</span></div><div style="width:100%"><strong>Ambientes y .yml</strong>: En Conda, un ambiente se refiere a un &quot;environment&quot;. Al exportar un ambiente, se utiliza el formato .yml, que proviene de YAML (&quot;YAML Ain&#x27;t Markup Language&quot;). Es un formato de serialización de datos legible por humanos y es ampliamente utilizado para configuraciones.</div></figure><h1 id="b7aaccbf-d334-4cf0-a470-b8ccad26abd9" class=""><strong>6. Usando Mamba</strong></h1><p id="2ccb14ba-6e68-4b48-b003-ba06d064bff2" class="">Mamba es una alternativa rápida y ligera a Conda, diseñada para acelerar la resolución de dependencias y la instalación de paquetes. Es especialmente útil cuando se trabaja con entornos virtuales que tienen muchas dependencias, ya que Mamba utiliza un solucionador de dependencias optimizado y escrito en C++. Aunque Mamba es una herramienta diferente, su sintaxis es idéntica a la de Conda, lo que facilita su adopción.</p><p id="6aa6ae2f-e834-45d5-b020-8209d818d910" class="">Para instalar Mamba, simplemente ejecuta:</p><pre id="4c08eb2f-5a7a-411d-ad76-fa2206f9da05" class="code code-wrap"><code>conda install -c conda-forge mamba</code></pre><p id="5c7131ae-186e-4ea5-a943-2105ff7a0b0b" class="">Una vez instalado, puedes usar <code><strong>mamba</strong></code> en lugar de <code><strong>conda</strong></code> para la mayoría de las operaciones, como crear entornos, instalar paquetes y actualizarlos.</p><h1 id="0d40faaf-f8f9-4931-b34f-f6b9aac2d20c" class=""><strong>7. Buenas Prácticas con Ambientes Virtuales</strong></h1><p id="ae399dd0-8daf-4f80-8c7f-cf17585cd965" class="">Mantener un ambiente virtual separado para cada proyecto es una excelente práctica en el desarrollo de software y ciencia de datos. Esto asegura que las dependencias de un proyecto no interfieran con las de otro, y facilita la replicabilidad y portabilidad del proyecto.</p><p id="bbd985f1-c58f-408e-b43b-a8d1aae067b8" class="">Cuando un ambiente tiene muchas dependencias, actualizar un solo paquete puede causar incompatibilidades o errores. Al dividir un proyecto en múltiples ambientes virtuales, se minimiza el riesgo de inestabilidad.</p><p id="b706ffe8-edfc-41c9-80ff-6a4051e3dd61" class="">Una estructura de directorio recomendada para proyectos es:</p><pre id="c24201dd-d364-4f87-8663-dedead37002a" class="code code-wrap"><code>- data
+- models
+- notebooks
+- envs
+    - external.yml
+    - model.yml
+    - communication.yml</code></pre><p id="4f585b77-445e-401e-bd09-c7818545b83c" class="">Dentro de la carpeta <code><strong>envs</strong></code>, puedes mantener diferentes archivos <code><strong>.yml</strong></code> que describan los ambientes para diferentes partes de tu proyecto. Por ejemplo, <code><strong>model.yml</strong></code> podría contener las dependencias necesarias para el modelado, mientras que <code><strong>communication.yml</strong></code> podría contener paquetes para la visualización o comunicación de resultados.</p><p id="2dbb7599-51a6-41b9-9da6-9dafc71fbfe5" class=""><strong>Snakemake</strong>: Una herramienta que complementa esta estructura es Snakemake, un motor de flujo de trabajo que permite definir y ejecutar tareas en un orden específico. Con Snakemake, cada paso del proyecto se puede dividir y automatizar, asegurando que todas las dependencias y tareas se manejen correctamente. Es especialmente útil para proyectos de ciencia de datos y bioinformática, donde los flujos de trabajo pueden ser complejos y constar de múltiples etapas.</p><figure id="58d525c1-ba9b-451e-af43-7d72c075c680"><a href="https://snakemake.readthedocs.io/en/stable/" class="block-color-teal_background bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Snakemake — Snakemake 7.32.3 documentation</div><div class="bookmark-description">Getting started</div></div><div class="bookmark-href"><img src="https://snakemake.readthedocs.io/favicon.ico" class="icon bookmark-icon"/>https://snakemake.readthedocs.io/en/stable/</div></div></a></figure><p id="8f234bcd-17bd-4945-96d3-30a913f72406" class="">
+</p></div></article></body></html>
