@@ -1,9 +1,9 @@
 # Configuración de Jekyll
-title: "Santiago Flores Lazo"
-description: "Portafolio académico y profesional de Santiago Flores Lazo. Física, ciencia de datos y neurociencia computacional aplicadas a salud y energía."
-author: "Santiago Flores Lazo"
+title: "Santiago Ismael Flores-Chávez"
+description: "Portafolio académico y profesional de Santiago Ismael Flores-Chávez. Física, ciencia de datos y física computacional aplicada a salud y energía."
+author: "Santiago Ismael Flores-Chávez"
 lang: es
-baseurl: "" # Dejar vacío si el repositorio es username.github.io, o poner el nombre del repo (ej: "/IsSantiagoFL")
+baseurl: "/IsSantiagoFL" # Dejar vacío si el repositorio es username.github.io, o poner el nombre del repo (ej: "/IsSantiagoFL")
 url: "" # Se configurará automáticamente en GitHub Pages
 
 # Configuración de Jekyll para GitHub Pages
@@ -44,4 +44,5 @@ social:
   email: santiago.flores@ejemplo.com
   linkedin: https://www.linkedin.com
   github: https://github.com/ismaSantiagoFL
+  scholar: https://scholar.google.com/citations?user=8BYm_dcAAAAJ&hl=es&oi=ao
 
