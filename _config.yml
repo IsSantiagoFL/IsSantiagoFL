@@ -4,7 +4,7 @@ description: "Portafolio académico y profesional de Santiago Ismael Flores-Chá
 author: "Santiago Ismael Flores-Chávez"
 lang: es
 baseurl: "/IsSantiagoFL" # Dejar vacío si el repositorio es username.github.io, o poner el nombre del repo (ej: "/IsSantiagoFL")
-url: "" # Se configurará automáticamente en GitHub Pages
+url: "https://IsSantiagoFL.github.io" # URL pública de GitHub Pages
 
 # Configuración de Jekyll para GitHub Pages
 plugins:

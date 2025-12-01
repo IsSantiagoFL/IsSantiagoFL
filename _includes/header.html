@@ -8,7 +8,8 @@
     <nav>
       <div class="nav-links">
         {% for item in site.navigation %}
-        <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.title }}</a>
+          {% assign item_path = item.url | relative_url %}
+          <a href="{{ item_path }}" {% if page.url == item_path %}class="active"{% endif %}>{{ item.title }}</a>
         {% endfor %}
       </div>
       <a class="cta primary" href="{{ '/cv/' | relative_url }}">Ver CV</a>
