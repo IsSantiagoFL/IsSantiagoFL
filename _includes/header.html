@@ -1,0 +1,18 @@
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <strong>Santiago Flores Lazo</strong>
+      <span>Física · Data Science · Neurociencia computacional</span>
+    </a>
+    <button class="mobile-toggle" aria-expanded="false" aria-label="Abrir menú">Menú</button>
+    <nav>
+      <div class="nav-links">
+        {% for item in site.navigation %}
+        <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.title }}</a>
+        {% endfor %}
+      </div>
+      <a class="cta primary" href="{{ '/cv/' | relative_url }}">Ver CV</a>
+    </nav>
+  </div>
+</header>
+

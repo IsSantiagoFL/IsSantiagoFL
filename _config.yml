@@ -1,0 +1,47 @@
+# Configuración de Jekyll
+title: "Santiago Flores Lazo"
+description: "Portafolio académico y profesional de Santiago Flores Lazo. Física, ciencia de datos y neurociencia computacional aplicadas a salud y energía."
+author: "Santiago Flores Lazo"
+lang: es
+baseurl: "" # Dejar vacío si el repositorio es username.github.io, o poner el nombre del repo (ej: "/IsSantiagoFL")
+url: "" # Se configurará automáticamente en GitHub Pages
+
+# Configuración de Jekyll para GitHub Pages
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# GitHub Pages usa estos plugins automáticamente, no necesitas instalarlos manualmente
+
+# Excluir archivos del procesamiento
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+
+# Configuración para GitHub Pages (se maneja automáticamente)
+# Si el repositorio NO es username.github.io, configura baseurl arriba
+# Ejemplo: baseurl: "/IsSantiagoFL" si tu repo se llama IsSantiagoFL
+
+# Variables personalizadas
+navigation:
+  - title: Academia
+    url: /academia/
+  - title: Servicios
+    url: /servicios/
+  - title: Colaborar
+    url: /colaboremos/
+  - title: Comunidad
+    url: /comunidad/
+  - title: Blog
+    url: /blog/
+  - title: Contacto
+    url: /contacto/
+
+social:
+  email: santiago.flores@ejemplo.com
+  linkedin: https://www.linkedin.com
+  github: https://github.com/ismaSantiagoFL
+
