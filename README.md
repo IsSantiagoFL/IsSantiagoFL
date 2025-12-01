@@ -1,4 +1,4 @@
-# Portafolio de Santiago Flores Lazo
+# Portafolio de Santiago Ismael Flores-Chávez
 
 Sitio web personal construido con Jekyll para GitHub Pages.
 
